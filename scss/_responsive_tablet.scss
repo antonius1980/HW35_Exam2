@@ -1,0 +1,16 @@
+@use "include" as *;
+
+//Resolutions below starting from 991.99px ($lg-min)
+@media screen and (max-width: $lg-min) {
+
+}
+
+//Resolutions from ($md) 768px to 991.99px ($lg-min)
+@media screen and (min-width: $md) and (max-width: $lg-min) {
+
+}
+
+//Resolutions below starting from 767.99px ($md-min)
+@media screen and (max-width: $md-min) {
+
+}

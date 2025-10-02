@@ -1,0 +1,53 @@
+@use "functions" as *;
+@use "sass:math";
+
+// Main vars
+$font-size-html: 10px;
+$font-size-global: 18px;
+$line-height-global: 3rem;
+$font-family-global: "Lato", sans-serif;
+$font-family-headings: "Libre Baskerville", serif;
+$container-width: 100%;
+$container-width-max: 1170px;
+$container-padding: 50px;
+
+
+
+
+
+$background-color-global: #efefef;
+$text-color-primary: #262a3f;
+$accent-color-primary: #115447;
+$border-color-primary: #e4e4e4;
+$light-color-primary: #fff;
+$buttons-color-primary: #fff;
+$buttons-color-secondary: #35130f;
+$buttons-background-color-primary: #e54f3a;
+$buttons-background-color-secondary: #f7df1e;
+$buttons-border-color-primary: $border-color-primary;
+$buttons-border-color-secondary: $buttons-color-secondary;
+$links-color-primary: $accent-color-primary;
+$links-color-secondary: $buttons-color-secondary;
+$symbol-color: $border-color-primary;
+$nav-links-hover-bg: $buttons-color-primary;
+$font-color-heading: $text-color-primary;
+$background-color-global-transparent-90: hex-to-rgb-change-alpha($background-color-global, 90);
+$text-color-primary-transparent-10: hex-to-rgb-change-alpha($text-color-primary, 10);
+$text-color-primary-transparent-20: hex-to-rgb-change-alpha($text-color-primary, 20);
+$text-color-primary-transparent-60: hex-to-rgb-change-alpha($text-color-primary, 60);
+$accent-color-primary-transparent-30: hex-to-rgb-change-alpha($accent-color-primary, 50);
+
+// Breakpoints desktop first
+//Widescreen - default CSS
+$xxl: 1400px;
+$xxl-min: 1399.99px;
+$xl: 1200px;
+$xl-min: 1199.99px;
+$lg: 992px;
+$lg-min: 991.99px;
+$md: 768px;
+$md-min: 767.99px;
+$sm: 576px;
+$sm-min: 575.99px;
+$xs: 360px;
+$xs-min: 359.99px;

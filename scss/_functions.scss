@@ -1,0 +1,26 @@
+@use 'sass:color';
+@use 'sass:math';
+@function hex-to-rgb($hex-color) {
+  @return rgb(
+    color.channel($hex-color, "red", $space: rgb),
+    color.channel($hex-color, "green", $space: rgb),
+    color.channel($hex-color, "blue", $space: rgb)
+  );
+}
+
+@function hex-to-rgb-list($hex-color) {
+  @return (
+    color.channel($hex-color, "red", $space: rgb),
+    color.channel($hex-color, "green", $space: rgb),
+    color.channel($hex-color, "blue", $space: rgb)
+  );
+}
+
+@function hex-to-rgb-change-alpha($hex-color, $alpha) {
+  @return rgba(
+    color.channel($hex-color, "red", $space: rgb),
+    color.channel($hex-color, "green", $space: rgb),
+    color.channel($hex-color, "blue", $space: rgb),
+    math.div($alpha, 100)
+  );
+}

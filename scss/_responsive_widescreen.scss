@@ -1,0 +1,21 @@
+@use "include" as *;
+
+//Default styles without media queries - Resolutions for widescreen
+
+//Resolutions up from 1400px ($xxl)
+@media screen and (min-width: $xxl) {
+	.container {
+		max-width: $container-width-max;
+		padding-inline: 0;
+	}
+}
+
+//Resolutions below starting from 1399.99px ($xxl-min)
+@media screen and (max-width: $xxl-min) {
+
+}
+
+//Resolutions below starting from 1199.99px ($xl-min)
+@media screen and (max-width: $xl-min) {
+
+}

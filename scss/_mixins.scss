@@ -1,0 +1,187 @@
+@use "vars" as *;
+@use "sass:map";
+// @include flex-center;
+// @include flex-center(column);
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// @include flex-ext;
+// @include flex-ext($gap: 30px);
+// @include flex-ext($gap: 20px 30px);
+// @include flex-ext(space-between, center, column, 20px 30px);
+// @include flex-ext(space-between, center, null, $gap: 30px);
+// @include flex-ext(space-between, flex-start, column, $gap: 30px);
+// @include flex-ext($align: space-between, $gap: 30px);
+@mixin flex-ext($justify: center, $align: center, $direction: null, $gap: null, $wrap: null) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	@if $direction != null {
+		flex-direction: $direction;
+	}
+	@if $gap != null {
+		gap: $gap;
+	}
+	@if $wrap != null {
+		flex-wrap: $wrap;
+	}
+}
+
+// @include font-b(1.5rem, 1.8em, 400, #fff, Arial);
+// @include font-b(1.5rem, 1.8em, 400);
+// @include font-b(1.5rem, 1.8em);
+@mixin font-basic($fz, $lh, $fw: null, $clr: null, $ff: null) {
+	font-size: $fz;
+	line-height: $lh;
+	@if $fw != null {
+		font-weight: $fw;
+	}
+	@if $clr != null {
+		color: $clr;
+	}
+	@if $ff != null {
+		font-family: $ff;
+	}
+}
+
+@mixin avh-c($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin ah-c($pos: absolute) {
+  position: $pos;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin av-c($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin v-hid {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin transition($props: all, $time: .3s, $ease: ease-in-out) {
+  transition: $props $time $ease;
+}
+
+// @include fluid-font(18, 32);
+// @include fluid-font(18, 32, 300, 768);
+@mixin fluid-font($min, $max, $min-vw: 320, $max-vw: 1200) {
+  font-size: clamp(#{$min}px, 
+                   calc(#{$min}px + (#{$max} - #{$min}) * 
+                   ((100vw - #{$min-vw}px) / (#{$max-vw} - #{$min-vw}))), 
+                   #{$max}px);
+}
+
+$breakpoints: (
+xxl: $xxl,
+xxl-min: $xxl-min,
+xl: $xl,
+xl-min: $xl-min,
+lg: $lg,
+lg-min: $lg-min,
+md: $md,
+md-min: $md-min,
+sm: $sm,
+sm-min: $sm-min,
+xs: $xs,
+xs-min: $xs-min
+);
+
+// @include m-min(lg) {...}
+@mixin m-min($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$breakpoint}` in the list.";
+  }
+}
+
+// @include m-max(lg-min) {...}
+@mixin m-max($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$breakpoint}` in the list.";
+  }
+}
+
+// @include m-between(md, xl-min) {...}
+@mixin m-between($min, $max) {
+  @if map.has-key($breakpoints, $min) and map.has-key($breakpoints, $max) {
+    @media (min-width: map.get($breakpoints, $min)) and (max-width: map.get($breakpoints, $max)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$min}` or `#{$max}` in the list.";
+  }
+}
+
+// @include m-min-xmin(md) {...}
+// @include m-min-xmin(sm, 2x) {...}
+@mixin m-min-xmin($min, $xmin: 1x) {
+  @if map.has-key($breakpoints, $min) {
+    @media (min-width: map.get($breakpoints, $min)) and (min-resolution: $xmin) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$min}` in the list.";
+  }
+}
+
+// @include m-min-xmax(md) {...}
+// @include m-min-xmax(sm, 2x) {...}
+@mixin m-min-xmax($min, $xmax: 1x) {
+  @if map.has-key($breakpoints, $min) {
+    @media (min-width: map.get($breakpoints, $min)) and (max-resolution: $xmax) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$min}` in the list.";
+  }
+}
+
+// @include m-max-xmin(md) {...}
+// @include m-max-xmin(sm, 2x) {...}
+@mixin m-max-xmin($max, $xmin: 1x) {
+  @if map.has-key($breakpoints, $max) {
+    @media (max-width: map.get($breakpoints, $max)) and (min-resolution: $xmin) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$max}` in the list.";
+  }
+}
+
+// @include m-max-xmax(md) {...}
+// @include m-max-xmax(sm, 2x) {...}
+@mixin m-max-xmax($max, $xmax: 1x) {
+  @if map.has-key($breakpoints, $max) {
+    @media (max-width: map.get($breakpoints, $max)) and (max-resolution: $xmax) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint `#{$max}` in the list.";
+  }
+}
