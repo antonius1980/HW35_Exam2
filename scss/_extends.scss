@@ -1,6 +1,11 @@
+@use "vars" as *;
 // @extend %btn-shared;
 %btn-shared {
 	padding: 10px 20px;
+}
+// @extend %gradiend-bg;
+%gradiend-bg {
+	background: linear-gradient(90deg, $accent-color-primary 0%,  $accent-color-secondary 100%) ;	
 }
 
 %special-cursor {

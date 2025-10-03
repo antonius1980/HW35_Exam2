@@ -4,16 +4,146 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Montichello International Group</title>
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	<link rel="icon" type="image/svg+xml" href="./assets/img/svg/favicon.svg">
-	<link rel="alternate icon" href="./favicon.ico">
-	<link rel="stylesheet" href="./css/main.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
+	<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.png">
+	<link rel="alternate icon" href="./favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="https://kit.fontawesome.com/29ece2f40b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<header class="header top-header">
+	<div class="container top-header__container">
+		<div class="top-header__block logo-block">
+			<a href="./#" class="logo-block__link">
+				<img class="logo logo-block__img" src="./assets/img/logo.png" alt="Logo image">
+			</a>
+		</div>	
+		<nav class="nav top-header__block top-header__nav">
+			<ul class="nav-menu">
+				<li class="nav-menu__item"><a href="#about" class="nav-menu__link">About Us</a></li>
+				<li class="nav-menu__item"><a href="#projects" class="nav-menu__link">Projects</a></li>
+				<li class="nav-menu__item"><a href="#news" class="nav-menu__link">News</a></li>
+				<li class="nav-menu__item"><a href="#contact" class="nav-menu__link">Contacts</a></li>
+			</ul>
+		</nav>
+		<div class="top-header__block top-header__socials">
+			<ul class="social-media">
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-facebook-f"></span></a></li>
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-twitter"></span></a></li>
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-instagram"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<main class="main main-content">
+	<div class="container main-content__container">
+		<section class="section main-content__section hero-section">
+			<h1 class="heading heading-1">Simple & Modern</h1>
+			<p>We make the world beautiful everyday</p>
+		</section>
 
-<script src="./js/script.js"></script>	
+		<section class="section main-content__section content-section">
+			<h2 class="heading heading-2">What We Do</h2>
+			<p>We make the world beautiful everyday</p>
+			<article class="article content-article">
+				<div class="content-article__col img-col">
+					<img src="./assets/img/trade-center.webp" alt="Trade center">
+
+				</div>
+				<div class="content-article__col content-col">
+					<h3 class="heading heading-3"><span>One World </span>Trade Center</h3>
+					<p>Increasing prosperity in our lives can be accomplished by having the right frame of mind. The truth is, our thoughts are very powerful.</p>
+					<button type="button" class="btn">More Details</button>
+					<p><em><span class="fa-solid fa-location-dot"></span>New York City, United States - 1776 feet </em></p>
+				</div>
+			</article>
+
+			<article class="article content-article content-article--reversed">
+				<div class="content-article__col img-col">
+					<img src="./assets/img/commerce-center@1x.webp" alt="Trade center">
+
+				</div>
+				<div class="content-article__col content-col">
+					<h3 class="heading heading-3"><span>International </span>Commerce Center</h3>
+					<p>Successful businesses have many things in common, today we’ll look at the big ‘R’ of recognition and how a digital advertising network may help.</p>
+					<button type="button" class="btn">More Details</button>
+					<p><em><span class="fa-solid fa-location-dot"></span>Hong Kong - 1588 feet</em></p>
+				</div>
+			</article>
+		</section>
+
+		<section class="section main-content__section content-section content-section--colorful news-section">
+			<h2 class="heading heading-2">Latest News</h2>
+			<p class="visually-hidden">Our latest news here</p>
+			<div id="newsSlider" class="news-slider">
+
+			</div>
+		</section>
+
+		<section class="section main-content__section content-section content-section--colorful news-section">
+			<h2 class="heading heading-2">Gallery</h2>
+			<p class="visually-hidden">You can view the World architecture examples gallery here</p>
+			<div id="gallery" class="image-gallery">
+
+			</div>
+			<button id="galleryLoadMoreBtn" type="button" class="btn">See More</button>
+		</section>
+
+		<section class="section main-content__section content-section contact-section">
+			<div class="contact-block contact-section__block">
+				<h2 class="heading heading-2">Get In Touch</h2>
+				<!-- <p class="visually-hidden">You can find our contact details below</p> -->
+				<address class="address contact-info contact-section__col">
+					<ul class="contact-info__list">
+						<li class="contact-info__list-item"><span class="fa-solid fa-location-dot"></span>91 Nolan Extensions Suite 670</li>
+						<li class="contact-info__list-item"><a href="tel:+001 356-868-2454" class="contact-info__link"><span class="fa-solid fa-phone"></span>+001 356-868-2454</a></li>
+						<li class="contact-info__list-item"><a href="mailto:montichello@service.com" class="contact-info__link"><span class="fa-regular fa-envelope-open"></span>montichello@service.com</a></li>
+						<li class="contact-info__list-item"><span class="fa-regular fa-clock"></span>From 07:05AM to 19:30PM</li>
+					</ul>
+				</address>
+				<form action="#" id="contactForm" class="form contact-section__col">
+					<input type="text" id="userName" name="user_name" class="inpt contact-section__inpt" placeholder="Enter Your Name">
+					<input type="email" id="userEmail" name="user_email" class="inpt contact-section__inpt" placeholder="Enter Your Email">
+					<button id="contactFormSubmitBtn" type="button" class="btn">Submit</button>
+				</form>
+			</div>
+
+			<div id="map" class="map">
+
+			</div>
+		</section>		
+
+	</div>
+</main>
+<footer class="footer bottom-footer">
+	<div class="container bottom-footer__container">
+		<div class="bottom-footer__block logo-block">
+			<a href="./#" class="logo-block__link">
+				<img class="logo logo-block__img" src="./assets/img/logo.png" alt="Logo image">
+			</a>
+		</div>	
+		<div class="bottom-footer__block bottom-footer__socials">
+			<ul class="social-media">
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-facebook-f"></span></a></li>
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-twitter"></span></a></li>
+				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-instagram"></span></a></li>
+			</ul>
+		</div>	
+		<div class="bottom-footer__block bottom-footer__copiright">
+			<p>Copyrights &copy; 2020 Montichello</p>
+		</div>	
+	</div>
+</footer>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+	<script src="./js/script.js"></script>	
 </body>
 </html>

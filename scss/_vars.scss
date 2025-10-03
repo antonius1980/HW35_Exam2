@@ -5,37 +5,45 @@
 $font-size-html: 10px;
 $font-size-global: 18px;
 $line-height-global: 3rem;
-$font-family-global: "Lato", sans-serif;
-$font-family-headings: "Libre Baskerville", serif;
+$font-family-global: "Open Sans", sans-serif;
+$font-family-headings: "Montserrat", sans-serif;
 $container-width: 100%;
 $container-width-max: 1170px;
 $container-padding: 50px;
 
-
-
-
-
-$background-color-global: #efefef;
-$text-color-primary: #262a3f;
-$accent-color-primary: #115447;
-$border-color-primary: #e4e4e4;
 $light-color-primary: #fff;
-$buttons-color-primary: #fff;
-$buttons-color-secondary: #35130f;
-$buttons-background-color-primary: #e54f3a;
-$buttons-background-color-secondary: #f7df1e;
+$dark-color-primary: #2c4058;
+$dark-color-secondary: #000;
+$accent-color-primary: #55b7ff;
+$accent-color-secondary: #7e5aff;
+
+$light-color-primary--transparent-40: hex-to-rgb-change-alpha($light-color-primary, 40);
+
+$background-color-global: $light-color-primary;
+$font-color-primary: $dark-color-primary;
+$font-color-heading: $font-color-primary;
+
+
+$border-color-primary: $dark-color-primary;
+
+$buttons-color-primary: $dark-color-secondary;
+$buttons-color-secondary: $dark-color-primary;
+
+$buttons-background-color-primary: $light-color-primary;
+$buttons-background-color-secondary: $accent-color-primary;
 $buttons-border-color-primary: $border-color-primary;
-$buttons-border-color-secondary: $buttons-color-secondary;
+$buttons-border-color-secondary: $dark-color-primary;
+
+$icons-color: $accent-color-secondary;
 $links-color-primary: $accent-color-primary;
-$links-color-secondary: $buttons-color-secondary;
-$symbol-color: $border-color-primary;
-$nav-links-hover-bg: $buttons-color-primary;
-$font-color-heading: $text-color-primary;
-$background-color-global-transparent-90: hex-to-rgb-change-alpha($background-color-global, 90);
-$text-color-primary-transparent-10: hex-to-rgb-change-alpha($text-color-primary, 10);
-$text-color-primary-transparent-20: hex-to-rgb-change-alpha($text-color-primary, 20);
-$text-color-primary-transparent-60: hex-to-rgb-change-alpha($text-color-primary, 60);
-$accent-color-primary-transparent-30: hex-to-rgb-change-alpha($accent-color-primary, 50);
+$links-color-secondary: $dark-color-primary;
+
+// $nav-links-hover-bg: $buttons-color-primary;
+// $background-color-global-transparent-90: hex-to-rgb-change-alpha($background-color-global, 90);
+// $text-color-primary-transparent-10: hex-to-rgb-change-alpha($text-color-primary, 10);
+// $text-color-primary-transparent-20: hex-to-rgb-change-alpha($text-color-primary, 20);
+// $text-color-primary-transparent-60: hex-to-rgb-change-alpha($text-color-primary, 60);
+// $accent-color-primary-transparent-30: hex-to-rgb-change-alpha($accent-color-primary, 50);
 
 // Breakpoints desktop first
 //Widescreen - default CSS

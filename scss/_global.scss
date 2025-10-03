@@ -10,7 +10,7 @@ body {
 	font-size: $font-size-global;
 	line-height: $line-height-global;
 	font-weight: 300;
-	color: $text-color-primary;
+	color: $font-color-primary;
 	background-color: $background-color-global;
 	//transition: color 1s ease-in-out, background 1s ease-in-out;
 }
@@ -149,18 +149,42 @@ input[type=checkbox] {
 	}
 }
 
+.logo-block {
+    &__img {
+    }
+    &__link {
+    }
+}
+
 .top-header {
+	@extend %gradiend-bg;
+	&__container {
 	@include flex-ext(space-between, center, row, 25px);
-	padding: 30px 0;
-	background: linear-gradient(90deg, #fffce8 0%,  #f9f1b9 100%) ;
+	padding: 50px 0;
+	}
+    &__block {
+
+    }
+    &__nav {
+
+    }
+    &__socials {
+
+    }
 }
 
 .nav-menu {
 	@include flex-ext(center, center, row, 25px, null);
 	margin-right: 30px;
+    &__item {
+    }
+    &__link {
+    }
 }
 
 .main-content {
+    &__container {
+    }
 	&__article {
 		padding: 30px 25px;
 	}
@@ -172,4 +196,47 @@ input[type=checkbox] {
 
 .visually-hidden {
 	@include v-hid;
+}
+
+.social-media {
+	@include flex-ext(center, center, row, 20px, nowrap);
+    &__item {
+    }
+    &__link {
+		color: $light-color-primary;
+		display: inline-block;
+		width:40px;
+		height: 40px;
+		border: 1px solid $light-color-primary--transparent-40;
+		border-radius: 50%;
+		position: relative;
+		& span {
+			@include avh-c;
+			font-size: 16px;
+		}
+		&:hover {
+			border-color: $light-color-primary; 
+		}
+    }
+}
+
+.bottom-footer {
+	@extend %gradiend-bg;
+	min-height: 550px;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		width:100%;
+		height: 100%;
+		background: url(../assets/img/footer-bg@1x.webp) no-repeat 100% 50% /cover;
+	}
+    &__container {
+		@include flex-ext(space-between, center, row, 25px);
+		padding: 200px 0 230px;
+    }
+    &__block {
+    }
+    &__socials {
+    }
 }
