@@ -7,6 +7,10 @@
 %gradiend-bg {
 	background: linear-gradient(90deg, $accent-color-primary 0%,  $accent-color-secondary 100%) ;	
 }
+%screen-width-max {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 
 %special-cursor {
 	cursor: url("./../assets/img/svg/small/cursor.svg"), pointer;
