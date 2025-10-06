@@ -650,6 +650,7 @@ body {
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -991,6 +992,7 @@ ol li {
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: -1;
   background: url(../assets/img/footer-bg@1x.webp) no-repeat 100% 50%/cover;
 }
 .bottom-footer__container {
@@ -1015,6 +1017,14 @@ ol li {
 
 .transparent {
   opacity: 0;
+}
+
+.is-prep {
+  opacity: 0;
+}
+
+.is-paused {
+  animation-play-state: paused;
 }
 
 .social-media {
@@ -1045,12 +1055,12 @@ ol li {
   border-color: #fff;
 }
 
-.slider-slide {
+.hero-slider .slider-slide {
   padding: 150px 0 150px;
   height: 800px;
   position: relative;
 }
-.slider-slide::before {
+.hero-slider .slider-slide::before {
   opacity: 0.1;
   position: absolute;
   top: 50%;
@@ -1062,31 +1072,41 @@ ol li {
   height: 100%;
   background: url(../assets/img/slider/slider1@1x.webp) no-repeat 100% 50%/cover;
 }
-.slider-slide .container {
+.hero-slider .slider-slide .container {
+  z-index: 1;
+  position: relative;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
-.slide-1::before {
+.hero-slider .slider-slide.slide-1::before {
   background-image: url(../assets/img/slider/slider1@1x.webp);
 }
-.slide-2::before {
+.hero-slider .slider-slide.slide-2::before {
   background-image: url(../assets/img/slider/slider2@1x.webp);
 }
-.slide-3::before {
+.hero-slider .slider-slide.slide-3::before {
   background-image: url(../assets/img/slider/slider3@1x.webp);
 }
-.slide-4::before {
+.hero-slider .slider-slide.slide-4::before {
   background-image: url(../assets/img/slider/slider4@1x.webp);
 }
-.slide-5::before {
+.hero-slider .slider-slide.slide-5::before {
   background-image: url(../assets/img/slider/slider5@1x.webp);
 }
 
-.slick-dots {
+.news-article {
+  background-color: #fff;
+}
+.news-slider__slide {
+  padding-inline: 15px;
+}
+.news-slider__news-article {
+  margin-left: 0px;
+}
+.hero-slider .slick-dots {
   padding-left: 0;
   list-style: none;
   display: flex;
@@ -1098,10 +1118,7 @@ ol li {
   right: 33px;
   transform: translateY(-50%);
 }
-.slick-dots li.slick-active button {
-  background-color: antiquewhite;
-}
-.slick-dots button {
+.hero-slider .slick-dots li button {
   font-size: 0;
   background: rgba(57, 87, 81, 0.5882352941);
   border: 1px solid #ffddff;
@@ -1112,20 +1129,21 @@ ol li {
   box-shadow: 0 0 6px 0px #4e6a6c;
   cursor: pointer;
 }
-
-.slick-arrow {
+.hero-slider .slick-dots li.slick-active button {
+  background-color: antiquewhite;
+}
+.hero-slider .slick-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
   font-size: 0;
-  border: none;
-  background: #525c5d;
-  width: 50px;
-  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
-.slick-arrow::before {
+.hero-slider .slick-arrow::before {
   content: "<";
   position: absolute;
   top: 50%;
@@ -1134,17 +1152,79 @@ ol li {
   font-size: 30px;
   color: #fff;
 }
-
-.slick-prev {
+.hero-slider .slick-prev {
   left: 30px;
 }
-
-.slick-next {
+.hero-slider .slick-next {
   left: none;
   right: 30px;
 }
-.slick-next::before {
+.hero-slider .slick-next::before {
   content: ">";
+}
+
+.news-slider {
+  position: relative;
+}
+.news-slider .slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateY(-50%);
+}
+.news-slider .slick-dots li button {
+  font-size: 0;
+  border: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.news-slider .slick-dots li.slick-active button {
+  background-color: #fff;
+}
+.news-slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  font-size: 0;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+.news-slider .slick-arrow:hover {
+  border-color: #fff;
+}
+.news-slider .slick-arrow::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f104";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  color: #fff;
+}
+.news-slider .slick-arrow.slick-prev {
+  left: -100px;
+}
+.news-slider .slick-arrow.slick-next {
+  left: none;
+  right: -100px;
+}
+.news-slider .slick-arrow.slick-next::before {
+  content: "\f105";
 }
 
 @media screen and (min-width: 1400px) {

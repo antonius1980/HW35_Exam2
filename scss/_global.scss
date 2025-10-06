@@ -2,6 +2,7 @@
 
 html {
 	font-size: $font-size-html;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -382,6 +383,7 @@ ol {
 		position: absolute;
 		width:100%;
 		height: 100%;
+		z-index: -1;
 		background: url(../assets/img/footer-bg@1x.webp) no-repeat 100% 50% /cover;
 	}
     &__container {
@@ -401,6 +403,9 @@ ol {
 .transparent {
 	opacity: 0;
 }
+
+.is-prep { opacity:0; }
+.is-paused { animation-play-state: paused; }
 
 .social-media {
 	@include flex-ext(center, center, row, 20px, nowrap);
@@ -425,121 +430,240 @@ ol {
 }
 
 // ----------------Hero Slider--------------
-
-.slider-slide {
-	//padding: 330px 0 329px;
-	padding: 150px 0 150px;
-	height: 800px;
-	position: relative;
-		&::before {
-			opacity: 0.1;
-			@include avh-c;
-			content: "";
-			position: absolute;
-			width:100%;
+.hero-slider {
+	& .slider-slide {
+		//padding: 330px 0 329px;
+		padding: 150px 0 150px;
+		height: 800px;
+		position: relative;
+			&::before {
+				opacity: 0.1;
+				@include avh-c;
+				content: "";
+				position: absolute;
+				width:100%;
+				height: 100%;
+				background: url(../assets/img/slider/slider1@1x.webp) no-repeat 100% 50% /cover;
+		}
+		& .container {
+			z-index: 1;
+			position: relative;
 			height: 100%;
-			background: url(../assets/img/slider/slider1@1x.webp) no-repeat 100% 50% /cover;
-	}
-	& .container {
-		height: 100%;
-		@include flex-center(column);
-	}
-}
-.slide {
-	&-1 {
-		&::before {
-			background-image: url(../assets/img/slider/slider1@1x.webp);
-		}		
-	}
-	&-2 {
-		&::before {
-			background-image: url(../assets/img/slider/slider2@1x.webp);
+			@include flex-center(column);
 		}
-	}
-	&-3 {
-		&::before {
-			background-image: url(../assets/img/slider/slider3@1x.webp);
-		}
-	}
-	&-4 {
-		&::before {
-			background-image: url(../assets/img/slider/slider4@1x.webp);
-		}
-	}
-	&-5 {
-		&::before {
-			background-image: url(../assets/img/slider/slider5@1x.webp);
-		}
-	}
+		&.slide {
+			&-1 {
+				&::before {
+					background-image: url(../assets/img/slider/slider1@1x.webp);
+				}		
+			}
+			&-2 {
+				&::before {
+					background-image: url(../assets/img/slider/slider2@1x.webp);
+				}
+			}
+			&-3 {
+				&::before {
+					background-image: url(../assets/img/slider/slider3@1x.webp);
+				}
+			}
+			&-4 {
+				&::before {
+					background-image: url(../assets/img/slider/slider4@1x.webp);
+				}
+			}
+			&-5 {
+				&::before {
+					background-image: url(../assets/img/slider/slider5@1x.webp);
+				}
+			}
 
+		}
+	}
 }
+
+
+
+// ----------------News Slider--------------
+
+.news-article {
+	background-color: $light-color-primary;
+	&__image {
+
+	}
+	&__title {
+
+	}
+	&__content {
+
+	}
+	&__info {
+
+	}
+}
+
+.article-info {
+	&__img {
+		
+	}
+	&__author {
+
+	}
+	&__name {
+
+	}
+	&__date {
+
+	}
+}
+
+.news-slider {
+	&__slide {
+		padding-inline: 15px;
+
+		& .news-article {
+			
+		}
+	}
+	&__news-article {
+		margin-left: 0px;
+		& + .news-article {
+			//margin-left: 30px;
+		}
+	}
+}
+
 
 // ------------------------- Slick Slider Default Classes ---------------------
 
-.slick-dots {
-    padding-left: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    position: absolute;
-    top: 50%;
-    right: 33px;
-    transform: translateY(-50%);
 
-    li {
-        &.slick-active {
-            button {
-                background-color: antiquewhite;
-            }
-        }
-    }
+.hero-slider {
+	& .slick-dots {
+		padding-left: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		position: absolute;
+		top: 50%;
+		right: 33px;
+		transform: translateY(-50%);
 
-    button {
-        font-size: 0;
-        background: #39575196;
-        border: 1px solid #ffddff;
-        width: 10px;
-        height: 10px;
-        padding: 0;
-        border-radius: 50%;
-        box-shadow: 0 0 6px 0px #4e6a6c;
-        cursor: pointer;
-    }
+		& li {
+			& button {
+				font-size: 0;
+				background: #39575196;
+				border: 1px solid #ffddff;
+				width: 10px;
+				height: 10px;
+				padding: 0;
+				border-radius: 50%;
+				box-shadow: 0 0 6px 0px #4e6a6c;
+				cursor: pointer;
+			}
+			&.slick-active {
+				button {
+					background-color: antiquewhite;
+				}
+			}
+		}
+
+	}
+	& .slick-arrow {
+		@include av-c;
+		z-index: 3;
+		font-size: 0;
+		border: 1px solid $light-color-primary--transparent-40;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+
+		&::before {
+			content: "<";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 30px;
+			color: #fff;
+		}
+	}
+
+	& .slick-prev {
+		left: 30px;
+	}
+
+	& .slick-next {
+		left: none;
+		right: 30px;
+		&::before {
+			content: ">";
+		}
+	}
 }
 
-.slick-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    font-size: 0;
-    border: none;
-    background: #525c5d;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
 
-    &::before {
-        content: "<";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 30px;
-        color: #fff;
-    }
-}
 
-.slick-prev {
-    left: 30px;
-}
+.news-slider {
+	position: relative;
+	& .slick-dots {
+		@include flex-ext(center, center, row, 40px, null);
+		position: absolute;
+		bottom: -50px;
+		left: 50%;
+		transform: translateY(-50%);
 
-.slick-next {
-    left: none;
-    right: 30px;
-    &::before {
-        content: ">";
-    }
+		& li {
+			& button {
+				font-size: 0;
+				border: 1px solid #fff;
+				width: 10px;
+				height: 10px;
+				padding: 0;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			&.slick-active {
+				button {
+					background-color: $light-color-primary;
+				}
+			}
+		}
+
+	}
+	& .slick-arrow {
+		@include av-c;
+		z-index: 3;
+		font-size: 0;
+		border: none;
+		background: transparent;
+		width: 40px;
+		height: 40px;
+		border: 1px solid $light-color-primary--transparent-40;
+		border-radius: 50%;
+		&:hover {
+			border-color: $light-color-primary;
+		}
+
+		&::before {
+			font-family: "Font Awesome 6 Free"; 
+			content: "\f104";
+			font-weight: 900;
+			@include avh-c;
+			font-size: 1.4rem;
+			color: #fff;
+		}
+		&.slick-prev {
+			left: -100px;
+		}
+		&.slick-next {
+			left: none;
+			right: -100px;
+			&::before {
+				content: "\f105";
+			}
+		}
+	}
+
 }

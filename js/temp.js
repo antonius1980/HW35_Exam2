@@ -68,3 +68,33 @@ if (getComputedStyle(host).position === 'static') host.style.position = 'relativ
   console.log(node);
 }
 //checkElem('.test');
+
+  function animateOnScroll(targetBlock, repeat, fromTop, ...funcs) {
+    const target = targetBlock;
+    if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
+    const triggerLine = document.createElement('span');
+    Object.assign(triggerLine.style, {
+      position: 'absolute',
+      left: '0', top: `${fromTop}%`,
+      width: '1px', height: '50px',
+      pointerEvents: 'none', opacity: '0'
+    });
+    target.appendChild(triggerLine);
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          if (repeat === 0) { obs.disconnect();}
+          //func();
+          funcs.forEach(f => f());
+          break;
+        }
+      }
+    }, {
+      root: null,
+      rootMargin: '-70% 0px -30% 0px',
+      threshold: 0
+    });
+
+    observer.observe(triggerLine);
+  }
