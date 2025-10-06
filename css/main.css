@@ -862,6 +862,7 @@ ol li {
 .main-content__section.hero-section {
   margin-bottom: 100px;
   text-align: center;
+  min-height: 800px;
 }
 .main-content__section.hero-section .heading, .main-content__section.hero-section p {
   color: #fff;
@@ -900,30 +901,31 @@ ol li {
 .content-article__col.img-col::after {
   content: "";
   position: absolute;
-  width: 94%;
-  height: 100%;
+  width: 0%;
+  height: 0%;
   left: 0;
-  top: 0px;
+  top: 0;
   background-color: #55b7ff;
   z-index: -1;
-  transform: translate(-215px, -53px);
-  opacity: 1;
+  transform: translate(0px, 0px) rotateZ(0deg);
+  opacity: 0;
   transition: transform 1s, opacity 1s, width 1s, height 1s;
 }
 .content-article__col.img-col img {
   width: 100%;
   display: block;
 }
-.content-article__col.pushed::after {
-  transform: translate(0px, 0px) !important;
-  opacity: 0.5;
-  width: 100%;
+.content-article__col.anim-right::after {
+  transform: translate(215px, -53px) rotateZ(720deg);
+  opacity: 1;
+  width: 94%;
+  height: 100%;
 }
-.content-article__col.out::after {
-  transform: translate(0px, 0px) !important;
-  opacity: 0.1;
-  width: 1%;
-  height: 1%;
+.content-article__col.anim-left::after {
+  transform: translate(-215px, -53px);
+  opacity: 1;
+  width: 94%;
+  height: 100%;
 }
 .content-article__col.content-col {
   width: 100%;
@@ -959,7 +961,6 @@ ol li {
 .content-article.article--reversed .img-col::after {
   content: "";
   background-color: #7e5aff;
-  transform: translate(215px, -53px);
 }
 
 .news-section {
@@ -1012,6 +1013,10 @@ ol li {
   border: 0;
 }
 
+.transparent {
+  opacity: 0;
+}
+
 .social-media {
   display: flex;
   justify-content: center;
@@ -1041,7 +1046,8 @@ ol li {
 }
 
 .slider-slide {
-  padding: 330px 0 329px;
+  padding: 150px 0 150px;
+  height: 800px;
   position: relative;
 }
 .slider-slide::before {
@@ -1055,6 +1061,13 @@ ol li {
   width: 100%;
   height: 100%;
   background: url(../assets/img/slider/slider1@1x.webp) no-repeat 100% 50%/cover;
+}
+.slider-slide .container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .slide-1::before {

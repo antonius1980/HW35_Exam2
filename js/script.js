@@ -10,93 +10,135 @@ function createSlider(id, slides) {
     const slide = document.createElement('div');
     slide.className = `slider-slide slide-${i + 1}`;
     let headingNum;
-    i = 0 ? headingNum = 1 : headingNum = 2;
+    i == 0 ? headingNum = 1 : headingNum = 2;
     
     slide.innerHTML = `
     <div class="container section__container">  
       <div class="slider__content sl-content">  
-        <h${headingNum} class="heading heading-1">${heading}</h${headingNum}>
+        <h${headingNum} class="heading heading-1 animate__animated animate__bounce">${heading}</h${headingNum}>
         <p class="slide__text">${text}</p>
       </div>
     </div>`;
     sliderContainer.appendChild(slide);
   });
-
-// function testCreateSlider(id, slides) {
-// const sliderData = {};
-// sliderData.id = id.id;
-// sliderData.tagName = id.nodeName;
-//sliderData.slidesQuantity = slidesNumb;
-
-//let slidesData = createSlidesData(slidesNumb);
-  //sliderConfig.slides = slides;
-  //let slidesNames = sliderConfig.slides;
-
-//sliderData.slidesArray = slidesData;
-
-// console.log(sliderData);
 }
-//let heroSlider = createSlider(topSlider, 5);
 
+//Can set predefined element or '.class' or '#id' as el
+  function togglesAnim(el, classname) {
+    let animatedClass = 'animate__animated';
+    if (el && typeof el === 'object') {
+      el.classList.add(animatedClass);
+      el.classList.toggle(classname);
+    } 
+    else if (el) {
+      el = document.querySelector(el);
+      el ? (el.classList.add(animatedClass), el.classList.toggle(classname)) : console.log('No such element');
+    } 
+    else {console.log('No value set')};
+  }
 
-// function createSlidesData(slidesNumb, slideCode) {
-//   let slidesData = [];
+ //togglesAnim('.test', 'animate__fadeInLeftBig');
 
-//   for (let sl = 0; sl < slidesNumb; sl++) {
-//     let slideInfo = {};
-//     let slideClass = `slide-${sl + 1}`;
-//     slideInfo.class = slideClass;
-//     //let slideBg = ;
-//     slidesData.push(slideInfo);
-//   }
-//   return slidesData;
-// }
+function toggleEachClass(el, ...classes) {
+  const node = (typeof el === 'string') ? document.querySelector(el) : el;
+  if (!node) return;
+  classes.flat().filter(Boolean).forEach(c => node.classList.toggle(c));
+}
 
-let heroSlider = createSlider('topSlider', [
-  { heading: 'Simple & Modern', text: 'We make the world beautiful everyday' },
-  { heading: 'Simple & Modern 2', text: 'Increasing prosperity in our lives' },
-  { heading: 'Simple & Modern 3', text: 'Successful businesses have many things in common' },
-  { heading: 'Simple & Modern 4', text: 'We make the world beautiful everyday' },
-  { heading: 'Simple & Modern 5', text: 'We make the world beautiful everyday' }
-]);
+//toggleEachClass(article1, 'animate__animated', 'animate__fadeInLeftBig');
 
+  function animateOnScroll(targetBlock, repeat, fromTop, ...funcs) {
+    const target = targetBlock;
+    if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
+    const triggerLine = document.createElement('span');
+    Object.assign(triggerLine.style, {
+      position: 'absolute',
+      left: '0', top: `${fromTop}%`,
+      width: '1px', height: '50px',
+      pointerEvents: 'none', opacity: '0'
+    });
+    target.appendChild(triggerLine);
 
-
-
-				const pushedBtn1 = document.querySelector("#push1");
-				function push1() {pushedBtn1.classList.toggle("out")};
-				//pushedBtn1.addEventListener("mouseover", push1);
-
-				const pushedBtn2 = document.querySelector("#push2");
-				function push2() {pushedBtn2.classList.toggle("pushed")};
-				//pushedBtn2.addEventListener("click", push2);
-
-
-  const host = document.querySelector('.content-article');   
-  if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
-
-  const triggerLine = document.createElement('span');
-  Object.assign(triggerLine.style, {
-    position: 'absolute',
-    left: '0', top: '50%',
-    width: '1px', height: '50px',
-    pointerEvents: 'none', opacity: '0'
-  });
-  host.appendChild(triggerLine);
-
-  const io = new IntersectionObserver((entries, obs) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        obs.disconnect();
-        push1();
-        push2();
-        break;
+    const observer = new IntersectionObserver((entries, obs) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          if (repeat === 0) { obs.disconnect();}
+          //func();
+          funcs.forEach(f => f());
+          break;
+        }
       }
-    }
-  }, {
-    root: null,
-    rootMargin: '-50% 0px -50% 0px',
-    threshold: 0
-  });
+    }, {
+      root: null,
+      rootMargin: '-70% 0px -30% 0px',
+      threshold: 0
+    });
 
-  io.observe(triggerLine);
+    observer.observe(triggerLine);
+  }
+
+  function toggleClass(el, classname) {el.classList.toggle(classname)}; 
+    
+  function makeTransparent(...els) {
+    els.forEach(a => { a.classList.add(transparentClass);});
+  };
+
+  let transparentClass = 'transparent';
+  
+
+  document.addEventListener('DOMContentLoaded', () => { 
+    //-------Создаю слайдер с текстами---------
+  const heroSlider = createSlider('topSlider', [
+    { heading: 'Simple & Modern', text: 'We make the world beautiful everyday' },
+    { heading: 'Smart & Functional', text: 'Designs that inspire and serve every purpose' },
+    { heading: 'Green & Sustainable', text: 'Building today with care for tomorrow' },
+    { heading: 'Elegant & Timeless', text: 'Architecture that never goes out of style' },
+    { heading: 'Visionary & Bold', text: 'Turning ambitious ideas into living landmarks' }
+  ]);
+
+
+  //const imgColLeft = document.querySelector("#imgColLeft");
+  //const imgColRight = document.querySelector("#imgColRight");
+  const article1 = document.querySelector('.content-section__container .content-article:nth-of-type(1)');  
+  const article2 = document.querySelector('.content-section__container .content-article:nth-of-type(2)');  
+  const article1ImgCol = article1?.querySelector('.img-col');  
+  const article2ImgCol = article2?.querySelector('.img-col');
+
+  //article1.classList.add(transparentClass);
+  //article2.classList.add(transparentClass);
+
+  makeTransparent(article1, article2)
+
+
+  // const animateArticle1 = () => toggleEachClass(article1, 'animate__animated', 'animate__fadeInLeftBig');
+  // const animateArticle2 = () => toggleEachClass(article2, 'animate__animated', 'animate__fadeInRightBig');
+
+  const animateArticle1 = () => togglesAnim(article1, 'animate__fadeInLeftBig');
+  const animateArticle2 = () => togglesAnim(article2, 'animate__fadeInRightBig');
+
+  const animateArticle1Img = () => togglesAnim(article1ImgCol, 'anim-left');
+  const animateArticle2Img = () => togglesAnim(article2ImgCol, 'anim-right');
+  
+
+  // animateOnScroll(article1, 0, animateArticle1);
+  // animateOnScroll(article2, 0, animateArticle2);
+
+  //---------Вызываю анимацию во второй секции----------
+  animateOnScroll(article1, 0, 0, animateArticle1);
+  animateOnScroll(article1, 0, 30, animateArticle1Img);
+  animateOnScroll(article2, 0, 0, animateArticle2);
+  animateOnScroll(article2, 1, 30, animateArticle2Img);
+
+
+
+
+
+
+
+
+});
+
+
+
+
+

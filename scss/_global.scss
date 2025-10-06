@@ -239,8 +239,8 @@ ol {
 		&.hero-section {
 			margin-bottom: 100px;
 			@extend %gradiend-bg;
-			//padding: 330px 0 329px;
 			text-align: center;
+			min-height: 800px;
 			& .heading,
 			& p {
 				color: $light-color-primary ;
@@ -279,14 +279,15 @@ ol {
 			&::after {
 				content: "";
 				position: absolute;
-				width:94%;
-				height: 100%;
+				width:0%;
+				height: 00%;
 				left:0;
-				top:0px;
+				top:0;
 				background-color: $accent-color-primary;
 				z-index: -1;
-				transform: translate(-215px, -53px);
-				opacity:1;
+				//transform: translate(-215px, -53px);
+				transform: translate(0px, 0px) rotateZ(0deg);	
+				opacity:0;
 				transition: transform 1s, opacity 1s, width 1s, height 1s;
 			}
 			& img {
@@ -295,19 +296,20 @@ ol {
 
 			}
 		}
-		&.pushed {
+		&.anim-right {
 			&::after {
-				transform: translate(0px, 0px)!important;	
-				opacity: 0.5;	
-				width: 100%;	
+				transform: translate(215px, -53px) rotateZ(720deg);
+				opacity: 1;	
+				width: 94%;	
+				height: 100%;
 			}
 		}
-		&.out {
+		&.anim-left {
 			&::after {
-				transform: translate(0px, 0px)!important;	
-				opacity: 0.1;	
-				width: 1%;	
-				height: 1%;
+				transform: translate(-215px, -53px);
+				opacity: 1;	
+				width: 94%;	
+				height: 100%;
 			}
 		}
 		&.content-col {
@@ -346,7 +348,6 @@ ol {
 				&::after {
 					content: "";
 					background-color: $accent-color-secondary;
-					transform: translate(215px, -53px);
 				}
 			}
 
@@ -397,6 +398,10 @@ ol {
 	@include v-hid;
 }
 
+.transparent {
+	opacity: 0;
+}
+
 .social-media {
 	@include flex-ext(center, center, row, 20px, nowrap);
     &__item {
@@ -419,10 +424,12 @@ ol {
     }
 }
 
-
+// ----------------Hero Slider--------------
 
 .slider-slide {
-	padding: 330px 0 329px;
+	//padding: 330px 0 329px;
+	padding: 150px 0 150px;
+	height: 800px;
 	position: relative;
 		&::before {
 			opacity: 0.1;
@@ -432,6 +439,10 @@ ol {
 			width:100%;
 			height: 100%;
 			background: url(../assets/img/slider/slider1@1x.webp) no-repeat 100% 50% /cover;
+	}
+	& .container {
+		height: 100%;
+		@include flex-center(column);
 	}
 }
 .slide {
