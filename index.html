@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" href="./css/main.css">
 	<script src="https://kit.fontawesome.com/29ece2f40b.js" crossorigin="anonymous"></script>
 </head>
@@ -190,11 +192,56 @@
 			<div class="container section__container">
 				<h2 class="heading heading-2">Gallery</h2>
 				<p class="visually-hidden">You can view the World architecture examples gallery here</p>
-				<div id="gallery" class="image-gallery">
+				<ul id="gallery" class="image-gallery">
+					<li class="image-gallery__item">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture1@2x.webp" data-lg-size="1160-876">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture1@1x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture2@2x.webp" data-lg-size="1278-1280">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture2@2x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture3@2x.webp" data-lg-size="1920-1280">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture3@1x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture4@2x.webp" data-lg-size="1920-1280">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture4@1x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture5@2x.webp" data-lg-size="1140-856">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture5@1x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item is-hidden">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture6@2x.webp" data-lg-size="1920-2560">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture6@1x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item is-hidden">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture7@2x.webp" data-lg-size="1920-1280">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture7@2x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item is-hidden">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture8@2x.webp" data-lg-size="1920-2880">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture8@2x.webp" />
+						</a>
+					</li>
+					<li class="image-gallery__item is-hidden">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture9@2x.webp" data-lg-size="1920-3413">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture9@2x.webp" />
+						</a>
+					</li>
+				</ul>
 
-				</div>
 				<button id="galleryLoadMoreBtn" type="button" class="btn btn--centered">See More</button>
-			</div>
+				</div>
 		</section>
 
 		<section id="contact" class="section main-content__section content-section contact-section">
@@ -250,7 +297,46 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/zoom/lg-zoom.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
 	<script src="./js/jquery-based.js"></script>		
 	<script src="./js/script.js"></script>	
+
+<script type="text/javascript">
+	const galleryEl = document.getElementById('gallery');
+    lightGallery(galleryEl, {
+        plugins: [lgZoom, lgThumbnail],
+		thumbnail: true,
+    	zoom: true,
+		selector: '.image-gallery__link',
+    	download: false,
+        speed: 300
+    });
+
+  document.querySelectorAll('.image-gallery__img').forEach(img => {
+    img.loading = img.loading || 'lazy';
+    if (!img.alt || img.alt === '..') img.alt = 'Architecture photo';
+  });
+
+  const moreBtn = document.getElementById('galleryLoadMoreBtn');
+  const batch = 4;
+
+function revealNextBatch() {
+  const hiddenItems = galleryEl.querySelectorAll('.image-gallery__item.is-hidden');
+  hiddenItems.forEach((li, i) => {
+    if (i < batch) {
+		li.classList.remove('is-hidden');
+	}
+  });
+
+  if (!galleryEl.querySelector('.image-gallery__item.is-hidden')) {
+    moreBtn.remove();
+  }
+}
+
+moreBtn?.addEventListener('click', revealNextBatch);
+
+</script>
 </body>
 </html>

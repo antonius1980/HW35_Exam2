@@ -430,6 +430,57 @@ ol {
 }
 
 
+.image-gallery {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+	@media (min-width: 900px) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 1fr;
+	}	
+    &__item {
+		&:first-child {
+			@media (min-width: 900px) {
+				grid-column: span 2;
+				grid-row: span 2;
+			}				
+		}
+    }
+    &__link {
+		display:block;
+		position:relative;
+		background-color: $dark-color-primary;
+		&::after {
+
+		}
+		&:hover {
+			& img {
+				opacity: 1;
+			}
+			&::after {
+				content: url(../assets/img/svg/zoom-in.svg);
+				width: 70px;
+				height: 70px;
+				@include avh-c;
+			}
+			&::before {
+
+			}
+		}
+    }
+    &__img {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: 4/3;
+		object-fit: cover;
+		object-position: 50% 0%;
+		display:block;
+		opacity: 0.8;
+		transition: opacity 0.5s;
+    }
+}
+
+
 .contact-info {
     &__list {
 		
@@ -563,13 +614,21 @@ ol {
 .visually-hidden {
 	@include v-hid;
 }
-
 .transparent {
 	opacity: 0;
 }
 
-.is-prep { opacity:0; }
-.is-paused { animation-play-state: paused; }
+.is-prep {
+	opacity:0;
+}
+
+.is-paused {
+	animation-play-state: paused;
+}
+
+.is-hidden {
+	display:none
+}
 
 .social-media {
 	@include flex-ext(center, center, row, 20px, nowrap);
