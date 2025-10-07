@@ -48,7 +48,7 @@
             dots: true,
 
             autoplay: true,
-            autoplaySpeed: 2500,
+            autoplaySpeed: 4000,
             speed: 1500,
             infinite: true,
             fade: true,
