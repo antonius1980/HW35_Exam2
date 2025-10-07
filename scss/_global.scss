@@ -439,11 +439,13 @@ ol {
 		grid-auto-rows: 1fr;
 	}	
     &__item {
+		transition: opacity 1s;
+		opacity: 1;
 		&:first-child {
 			@media (min-width: 900px) {
 				grid-column: span 2;
 				grid-row: span 2;
-			}				
+			}			
 		}
     }
     &__link {
@@ -454,8 +456,12 @@ ol {
 
 		}
 		&:hover {
+			transform: scale(1.01);
+			border: 1px solid $dark-color-primary;
+			border-radius: 4px;
 			& img {
 				opacity: 1;
+
 			}
 			&::after {
 				content: url(../assets/img/svg/zoom-in.svg);
@@ -473,7 +479,7 @@ ol {
 		height: 100%;
 		aspect-ratio: 4/3;
 		object-fit: cover;
-		object-position: 50% 0%;
+		object-position: 50%;
 		display:block;
 		opacity: 0.8;
 		transition: opacity 0.5s;
@@ -557,6 +563,7 @@ ol {
 		color: $dark-color-primary;
 		margin-bottom: 30px;
 		width: 100%;
+		
 		&::placeholder{
 			color: $dark-color-primary--transparent-20;
 		}
@@ -566,10 +573,15 @@ ol {
 		}
 		
     }
+	&__textarea {
+		min-height: 36px;
+	}
 }
 
-.inpt {
-}
+	#map {
+		height: 700px;
+		z-index: 1;
+	}
 
 .bottom-footer {
 	
@@ -627,7 +639,8 @@ ol {
 }
 
 .is-hidden {
-	display:none
+	display:none;
+	opacity:0;
 }
 
 .social-media {
@@ -716,11 +729,18 @@ ol {
 	&__image {
 
 	}
+	&__inner-container {
+	padding: 30px 20px;
+	}
 	&__title {
-
+		font-size: 2.2rem;
+		line-height: 2.7rem;
+		margin-bottom: 15px;
+		@extend %limit-lines-2;
 	}
 	&__content {
-
+		margin-bottom: 39px;
+		@extend %limit-lines-2;
 	}
 	&__info {
 
@@ -728,17 +748,24 @@ ol {
 }
 
 .article-info {
+	@include flex-ext(flex-start, center, row, 20px, null);
 	&__img {
-		
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
 	}
 	&__author {
-
+		font-family: $font-family-headings;
 	}
 	&__name {
-
+		display: block;
+		text-transform: uppercase;
 	}
 	&__date {
-
+		display: block;
+		font-size: 1.4rem;
+		line-height: 1.7rem;
+		color: $accent-color-primary;
 	}
 }
 

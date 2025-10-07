@@ -648,6 +648,14 @@ body {
   overflow-x: hidden;
 }
 
+.news-article__title, .news-article__content {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 html {
   font-size: 10px;
   scroll-behavior: smooth;
@@ -1037,6 +1045,10 @@ ol li {
     grid-auto-rows: 1fr;
   }
 }
+.image-gallery__item {
+  transition: opacity 1s;
+  opacity: 1;
+}
 @media (min-width: 900px) {
   .image-gallery__item:first-child {
     grid-column: span 2;
@@ -1047,6 +1059,11 @@ ol li {
   display: block;
   position: relative;
   background-color: #2c4058;
+}
+.image-gallery__link:hover {
+  transform: scale(1.01);
+  border: 1px solid #2c4058;
+  border-radius: 4px;
 }
 .image-gallery__link:hover img {
   opacity: 1;
@@ -1066,8 +1083,8 @@ ol li {
   aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 50% 0%;
-     object-position: 50% 0%;
+  -o-object-position: 50%;
+     object-position: 50%;
   display: block;
   opacity: 0.8;
   transition: opacity 0.5s;
@@ -1161,6 +1178,14 @@ ol li {
   border-bottom-color: #2c4058;
   color: #000;
 }
+.contact-section__textarea {
+  min-height: 36px;
+}
+
+#map {
+  height: 700px;
+  z-index: 1;
+}
 
 .bottom-footer {
   min-height: 550px;
@@ -1232,6 +1257,7 @@ ol li {
 
 .is-hidden {
   display: none;
+  opacity: 0;
 }
 
 .social-media {
@@ -1309,6 +1335,43 @@ ol li {
 .news-article {
   background-color: #fff;
 }
+.news-article__inner-container {
+  padding: 30px 20px;
+}
+.news-article__title {
+  font-size: 2.2rem;
+  line-height: 2.7rem;
+  margin-bottom: 15px;
+}
+.news-article__content {
+  margin-bottom: 39px;
+}
+.article-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+.article-info__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.article-info__author {
+  font-family: "Montserrat", sans-serif;
+}
+.article-info__name {
+  display: block;
+  text-transform: uppercase;
+}
+.article-info__date {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #55b7ff;
+}
+
 .news-slider__slide {
   padding-inline: 15px;
 }

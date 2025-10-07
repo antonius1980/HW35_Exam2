@@ -12,6 +12,12 @@
     overflow-x: hidden;
 }
 
-%special-cursor {
-	cursor: url("./../assets/img/svg/small/cursor.svg"), pointer;
+// @extend %limit-lines-2;
+%limit-lines-2 {
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
+

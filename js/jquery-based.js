@@ -47,7 +47,7 @@
             arrows: false,
             dots: true,
 
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 2500,
             speed: 1500,
             infinite: true,
@@ -81,7 +81,7 @@
             arrows: true,
             dots: true,
 
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             speed: 1500,
             infinite: true,

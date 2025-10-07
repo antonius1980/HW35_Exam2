@@ -189,6 +189,23 @@ function toggleEachClass(el, ...classes) {
     els.forEach(a => { a.classList.add(transparentClass);});
   };
 
+  const galleryEl = document.getElementById('gallery');
+  const moreBtn = document.getElementById('galleryLoadMoreBtn');
+  const batch = 4;
+  
+  function revealNextBatch() {
+  const hiddenItems = galleryEl.querySelectorAll('.image-gallery__item.is-hidden');
+  hiddenItems.forEach((li, i) => {
+    if (i < batch) {
+		li.classList.remove('is-hidden');
+	}
+  });
+
+  if (!galleryEl.querySelector('.image-gallery__item.is-hidden')) {
+    moreBtn.remove();
+  }
+}
+
   //----------------After DOM Loaded-----------------
   document.addEventListener('DOMContentLoaded', () => { 
 
@@ -202,10 +219,9 @@ function toggleEachClass(el, ...classes) {
   ]);
 
 
+
+  
   const topMenu = document.querySelector(".nav-menu");
-
-
-
   const targetsList =[];
   function addClickTargets(parent) {
   targetsList.push();
@@ -247,13 +263,46 @@ function toggleEachClass(el, ...classes) {
   animateOnScroll(article2, 0, 30, animateArticle2Img);
 
 
+    lightGallery(galleryEl, {
+        plugins: [lgZoom, lgThumbnail],
+		thumbnail: true,
+    	zoom: true,
+		selector: '.image-gallery__link',
+    	download: false,
+        speed: 500,
+        //backdropDuration: 500
+    });
 
+  document.querySelectorAll('.image-gallery__img').forEach(img => {
+    img.loading = img.loading || 'lazy';
+    if (!img.alt || img.alt === '..') img.alt = 'Architecture photo';
+  });
 
+moreBtn?.addEventListener('click', revealNextBatch);
 
+var map = L.map('map', {
+  scrollWheelZoom: false
+}).setView([50.020966, 36.31741], 15);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    
+}).addTo(map);
 
+var marker = L.marker([50.022966, 36.32741]).addTo(map);
+//var popup = L.popup();
 
+// function onMapClick(e) {
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("You clicked the map at " + e.latlng.toString())
+//         .openOn(map);
+// }
+
+// map.on('click', onMapClick);
 
 });
+
 
 
 

@@ -15,6 +15,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 
 	<link rel="stylesheet" href="./css/main.css">
 	<script src="https://kit.fontawesome.com/29ece2f40b.js" crossorigin="anonymous"></script>
@@ -131,13 +134,15 @@
 						<div class="news-slider__slide slick-slide slide-1">
 							<article class="article news-slider__news-article news-article">
 								<img class="news-article__image" src="./assets/img/news/news01@1x.webp" alt="">
-								<h3 class="heading heading-3 news-article__title">See the unmatched beauty of the great.</h3>
-								<p class="news-article__content">Free directories: directories are perfect for customers that are searching for...</p>
-								<div class="news-article__info article-info">
-									<img class="article-info__img" src="./assets/img/news/user1.webp" alt="ALJA BRUN">
-									<div class="article-info__author">
-										<span class="article-info__name">ALJA BRUN</span>
-										<time class="article-info__date" datetime="">20 Jan 2020</time>
+								<div class="news-article__inner-container">
+									<h3 class="heading heading-3 news-article__title">See the unmatched beauty of the great.</h3>
+									<p class="news-article__content">Free directories: directories are perfect for customers that are searching for...</p>
+									<div class="news-article__info article-info">
+										<img class="article-info__img" src="./assets/img/news/user1.webp" alt="ALJA BRUN">
+										<div class="article-info__author">
+											<span class="article-info__name">ALJA BRUN</span>
+											<time class="article-info__date" datetime="">20 Jan 2020</time>
+										</div>
 									</div>
 								</div>
 							</article>
@@ -145,13 +150,15 @@
 						<div class="news-slider__slide slick-slide slide-2">
 							<article class="article news-slider__news-article news-article">
 								<img class="news-article__image" src="./assets/img/news/news02@1x.webp" alt="">
-								<h3 class="heading heading-3 news-article__title">See the unmatched beauty of the great.</h3>
-								<p class="news-article__content">Free directories: directories are perfect for customers that are searching for...</p>
-								<div class="news-article__info article-info">
-									<img class="article-info__img" src="./assets/img/news/user2.webp" alt="DOMINIC FREEMAN">
-									<div class="article-info__author">
-										<span class="article-info__name">DOMINIC FREEMAN</span>
-										<time class="article-info__date" datetime="">13 Dec 2019</time>
+								<div class="news-article__inner-container">
+									<h3 class="heading heading-3 news-article__title">EFFECTIVE ADVERTISING POINTERS.</h3>
+									<p class="news-article__content">Having a home based business is a wonderful asset to your life...</p>
+									<div class="news-article__info article-info">
+										<img class="article-info__img" src="./assets/img/news/user2.webp" alt="DOMINIC FREEMAN">
+										<div class="article-info__author">
+											<span class="article-info__name">DOMINIC FREEMAN</span>
+											<time class="article-info__date" datetime="">13 Dec 2019</time>
+										</div>
 									</div>
 								</div>
 							</article>
@@ -159,27 +166,31 @@
 						<div class="news-slider__slide slick-slide slide-3">
 							<article class="article news-slider__news-article news-article">
 								<img class="news-article__image" src="./assets/img/news/news03@1x.webp" alt="">
-								<h3 class="heading heading-3 news-article__title">See the unmatched beauty of the great.</h3>
-								<p class="news-article__content">Free directories: directories are perfect for customers that are searching for...</p>
-								<div class="news-article__info article-info">
-									<img class="article-info__img" src="./assets/img/news/user3.webp" alt="ALICE WARD">
-									<div class="article-info__author">
-										<span class="article-info__name">ALICE WARD</span>
-										<time class="article-info__date" datetime="">30 Nov 2019</time>
+								<div class="news-article__inner-container">
+									<h3 class="heading heading-3 news-article__title">HYPNOTIZE YOURSELF INTO THE GHOST.</h3>
+									<p class="news-article__content">There are many things that are important to catalog design...</p>
+									<div class="news-article__info article-info">
+										<img class="article-info__img" src="./assets/img/news/user3.webp" alt="ALICE WARD">
+										<div class="article-info__author">
+											<span class="article-info__name">ALICE WARD</span>
+											<time class="article-info__date" datetime="">30 Nov 2019</time>
+										</div>
 									</div>
 								</div>
 							</article>
 						</div>
 						<div class="news-slider__slide slick-slide slide-4">
 							<article class="article news-slider__news-article news-article">
-								<img class="news-article__image" src="./assets/img/news/news01@1x.webp" alt="">
-								<h3 class="heading heading-3 news-article__title">See the unmatched beauty of the great.</h3>
-								<p class="news-article__content">Free directories: directories are perfect for customers that are searching for...</p>
-								<div class="news-article__info article-info">
-									<img class="article-info__img" src="./assets/img/news/user1.webp" alt="ALJA BRUN">
-									<div class="article-info__author">
-										<span class="article-info__name">ALJA BRUN</span>
-										<time class="article-info__date" datetime="">20 Jan 2020</time>
+								<img class="news-article__image" src="./assets/img/news/news02@1x.webp" alt="">
+								<div class="news-article__inner-container">
+									<h3 class="heading heading-3 news-article__title">EFFECTIVE ADVERTISING POINTERS.</h3>
+									<p class="news-article__content">Having a home based business is a wonderful asset to your life...</p>
+									<div class="news-article__info article-info">
+										<img class="article-info__img" src="./assets/img/news/user1.webp" alt="ALJA BRUN">
+										<div class="article-info__author">
+											<span class="article-info__name">Barber Babun</span>
+											<time class="article-info__date" datetime="">20 Jan 2020</time>
+										</div>
 									</div>
 								</div>
 							</article>
@@ -219,23 +230,23 @@
 						</a>
 					</li>
 					<li class="image-gallery__item is-hidden">
-						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture6@2x.webp" data-lg-size="1920-2560">
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture6@2x.webp" data-lg-size="960-1280">
 							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture6@1x.webp" />
 						</a>
 					</li>
 					<li class="image-gallery__item is-hidden">
-						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture7@2x.webp" data-lg-size="1920-1280">
-							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture7@2x.webp" />
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture7@2x.webp" data-lg-size="960-1440">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture7@1x.webp" />
 						</a>
 					</li>
 					<li class="image-gallery__item is-hidden">
-						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture8@2x.webp" data-lg-size="1920-2880">
-							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture8@2x.webp" />
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture8@2x.webp" data-lg-size="960-1440">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture8@1x.webp" />
 						</a>
 					</li>
 					<li class="image-gallery__item is-hidden">
-						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture9@2x.webp" data-lg-size="1920-3413">
-							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture9@2x.webp" />
+						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture9@2x.webp" data-lg-size="960-1707">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture9@1x.webp" />
 						</a>
 					</li>
 				</ul>
@@ -253,25 +264,26 @@
 						<ul class="contact-info__list">
 							<li class="contact-info__list-item"><span class="fa-solid fa-location-dot"></span>91 Nolan Extensions Suite 670</li>
 							<li class="contact-info__list-item"><a href="tel:+001 356-868-2454" class="contact-info__link"><span class="fa-solid fa-phone"></span>+001 356-868-2454</a></li>
-							<li class="contact-info__list-item"><a href="mailto:montichello@service.com" class="contact-info__link"><span class="fa-regular fa-envelope-open"></span>montichello@service.com</a></li>
+							<li class="contact-info__list-item"><a href="mailto:monticello@service.com" class="contact-info__link"><span class="fa-regular fa-envelope-open"></span>monticello@service.com</a></li>
 							<li class="contact-info__list-item"><span class="fa-regular fa-clock"></span>From 07:05AM to 19:30PM</li>
 						</ul>
 					</address>
 					<form action="#" id="contactForm" class="form contact-form contact-section__col">
 						<label for="userName" class="visually-hidden">Your Name</label>
-						<input type="text" id="userName" name="name" class="inpt contact-section__inpt" placeholder="Name">
+						<input type="text" id="userName" name="name" class="inpt contact-section__inpt" placeholder="Name" required>
 						<label for="userEmail" class="visually-hidden">Your Name</label>
-						<input type="email" id="userEmail" name="email" class="inpt contact-section__inpt" placeholder="Email">
+						<input type="email" id="userEmail" name="email" class="inpt contact-section__inpt" placeholder="Email" required>
 						<label for="UserMessage" class="visually-hidden">Your Message</label>
-						<textarea id="UserMessage"  name="message" class="textarea contact-section__inpt contact-section__textarea" placeholder="You message here.."></textarea>
-						<button id="contactFormSubmitBtn" type="button" class="btn btn--big btn--transp">Submit</button>
+						<textarea id="UserMessage"  name="message" class="textarea contact-section__inpt contact-section__textarea" placeholder="You message here.." required></textarea>
+						<button id="contactFormSubmitBtn" type="submit" class="btn btn--big btn--transp">Submit</button>
 					</form>
 				</div>
 
+
+			</div>
 				<div id="map" class="map">
 
 				</div>
-			</div>
 		</section>		
 </main>
 <footer class="footer bottom-footer">
@@ -300,43 +312,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/zoom/lg-zoom.umd.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 	<script src="./js/jquery-based.js"></script>		
 	<script src="./js/script.js"></script>	
-
-<script type="text/javascript">
-	const galleryEl = document.getElementById('gallery');
-    lightGallery(galleryEl, {
-        plugins: [lgZoom, lgThumbnail],
-		thumbnail: true,
-    	zoom: true,
-		selector: '.image-gallery__link',
-    	download: false,
-        speed: 300
-    });
-
-  document.querySelectorAll('.image-gallery__img').forEach(img => {
-    img.loading = img.loading || 'lazy';
-    if (!img.alt || img.alt === '..') img.alt = 'Architecture photo';
-  });
-
-  const moreBtn = document.getElementById('galleryLoadMoreBtn');
-  const batch = 4;
-
-function revealNextBatch() {
-  const hiddenItems = galleryEl.querySelectorAll('.image-gallery__item.is-hidden');
-  hiddenItems.forEach((li, i) => {
-    if (i < batch) {
-		li.classList.remove('is-hidden');
-	}
-  });
-
-  if (!galleryEl.querySelector('.image-gallery__item.is-hidden')) {
-    moreBtn.remove();
-  }
-}
-
-moreBtn?.addEventListener('click', revealNextBatch);
-
-</script>
 </body>
 </html>
