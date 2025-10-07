@@ -10,7 +10,7 @@ body {
 	font-style: normal;
 	font-size: $font-size-global;
 	line-height: $line-height-global;
-	font-weight: 300;
+	font-weight: 400;
 	color: $font-color-primary;
 	background-color: $background-color-global;
 	//transition: color 1s ease-in-out, background 1s ease-in-out;
@@ -86,13 +86,20 @@ ol {
 	display: inline-block;
 	padding: 16px 30px;
 	border: 1px solid $buttons-border-color-primary;
+	margin-bottom: 4px;
 	border-radius: 0;
 	background-color: $buttons-background-color-primary;
-	transition: transform 0.0s;
+	transition: transform 0.5s;
 	opacity: 1;
 	&--centered {
 		display: block;
 		margin: 30px auto;
+	}
+	&--big {
+		font-size: 1.8rem;
+	}
+	&--transp {
+		background-color: transparent;
 	}
 	&:disabled {
 		opacity:0.5;
@@ -102,7 +109,29 @@ ol {
 	&:hover {
 		color: $buttons-color-secondary;
 		background-color: $buttons-background-color-secondary;
+		border-color: $accent-color-secondary;
 		text-decoration: none;
+		transform: scale(1.1) translateY(-5px);
+		box-shadow: 0px 1px 1px 0px $accent-color-secondary;
+		border-radius: 4px;
+		text-shadow: 2px 0 3px rgba(0, 0, 0, 0.3);
+		font-size: 110%;
+		// &::before,
+		// &::after {
+		// 	font-family: "Font Awesome 6 Free";
+		// 	height: 1em;
+		// 	width: 1em;
+		// 	content: ">>>";
+		// 	@include av-c;
+		// 	left: 10px;
+
+		// }
+		// &::after {
+		// 	content: "<<<";
+		// 	right: 10px;
+		// 	left:auto;
+		// }
+
 	}
 
 	&:focus {
@@ -125,7 +154,7 @@ ol {
 	& a {
 		color: $accent-color-primary;
 		&:hover {
-			color: $buttons-color-secondary;
+			color: $dark-color-primary;
 			text-decoration: none;
 		}
 	}
@@ -189,25 +218,30 @@ ol {
 		color: $light-color-primary;
 		text-decoration: none;
 		padding-left: 23px;
+		padding-block: 10px;
 		display: block;
 		position: relative;
 		text-transform: uppercase;
+		transition: transform 0.5s, opacity 0.5s;
 		
 		&::before {
 			content: "";
 			border: 1px solid $light-color-primary;
 			left:0;
-			position: absolute;
-			top: 0.55em;
+			@include av-c;
     		transform: translateY(-50%);
 			width: 9px;
 			height: 9px;
 			border-radius: 50%;
+			opacity: 1;
 		}
 		&:hover {
 			text-decoration: none;
+			transform: scale(1.5) translateY(-5px);// rotateZ(360deg);
 			&::before {
 				background-color: $light-color-primary;
+				//transform: translateX(50px) scale(10);
+				//opacity: 0.1;
 			}
 		}
     }
@@ -395,25 +429,134 @@ ol {
 	}
 }
 
+
+.contact-info {
+    &__list {
+		
+    }
+    &__list-item {
+		line-height: 2.8rem;
+		font-family: $font-family-headings;
+		color: $dark-color-secondary;
+		margin-bottom: 15px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		& span {
+			color: $accent-color-secondary;	
+			margin-right: 10px;
+		}
+    }
+    &__link {
+		font-family: $font-family-headings;
+		color: $dark-color-secondary;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+    }
+}
+.contact-section {
+	background-color: #efefef;
+	position: relative;
+	min-height: 700px;
+	margin-bottom: 0;
+    &__block {
+		& > .heading-2 {
+			margin-bottom: 40px;
+		}
+		& > * {
+			flex: 1 0 100%;
+		}
+		@include ah-c;
+		bottom: -150px;
+		max-width: 770px;
+		min-height: 450px;
+		padding: 60px;
+		@include flex-ext(space-between, flex-start, row, 6%, wrap);
+		row-gap: 0;
+		z-index: 5;
+		&::before {
+			content: "";
+			@include avh-c;
+			width:100%;
+			height: 100%;
+			z-index: -1;
+			background: $light-color-primary url(../assets/img/contact-bg@1x.webp) no-repeat 100% 100%;
+		}
+		&::after {
+
+		}
+    }
+    &__col {
+		flex-basis: 47%;
+		&.address {
+
+		}
+		&.contact-form {
+			@include flex-ext(flex-end, flex-start, row, 0, wrap);
+			& .btn  {
+			
+			}
+		}
+    }
+    &__inpt {
+		border-bottom: 1px solid $dark-color-primary--transparent-20;
+		color: $dark-color-primary;
+		margin-bottom: 30px;
+		width: 100%;
+		&::placeholder{
+			color: $dark-color-primary--transparent-20;
+		}
+		&:focus {
+			border-bottom-color: $dark-color-primary;
+			color: $dark-color-secondary;
+		}
+		
+    }
+}
+
+.inpt {
+}
+
 .bottom-footer {
-	@extend %gradiend-bg;
+	
 	min-height: 550px;
 	position: relative;
+	color: $light-color-primary;
 	&::before {
 		content: "";
-		position: absolute;
+		@include avh-c;
 		width:100%;
 		height: 100%;
 		z-index: -1;
 		background: url(../assets/img/footer-bg@1x.webp) no-repeat 100% 50% /cover;
 	}
+	&::after {
+		content: "";
+		@include avh-c;
+		width:100%;
+		height: 100%;
+		z-index: -2;
+		@extend %gradiend-bg;
+	}
     &__container {
-		@include flex-ext(space-between, center, row, 25px);
+		@include flex-ext(space-between, center, row, 25px, wrap);
 		padding: 200px 0 230px;
+		width: 770px;
     }
     &__block {
     }
     &__socials {
+    }
+    &__copyright {
+		flex: 1 0 100%;
+		font-family: $font-family-headings;
+		font-size: 1.4rem;
+		line-height: 1.7rem;
+		margin-top: 40px;
+
     }
 }
 
@@ -440,12 +583,14 @@ ol {
 		border: 1px solid $light-color-primary--transparent-40;
 		border-radius: 50%;
 		position: relative;
+		transition: transform 0.5s, opacity 0.5s;
 		& span {
 			@include avh-c;
 			font-size: 16px;
 		}
 		&:hover {
 			border-color: $light-color-primary; 
+			transform: scale(1.5) rotateZ(360deg);
 		}
     }
 }

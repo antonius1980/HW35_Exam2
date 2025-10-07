@@ -87,7 +87,7 @@
 			</div> -->
 			</div>
 		</section>
-		<section class="section main-content__section content-section about-section">
+		<section id="aboutus" class="section main-content__section content-section about-section">
 			<div class="container content-section__container">
 				<h2 class="heading heading-2 animate__animated animate__fadeInUpBig">What We Do</h2>
 				<p class="visually-hidden">We make the world beautiful everyday</p>
@@ -121,7 +121,7 @@
 
 		</section>
 
-		<section class="section main-content__section content-section news-section">
+		<section id="news" class="section main-content__section content-section news-section">
 			<div class="container section__container">
 				<h2 class="heading heading-2">Latest News</h2>
 				<p class="visually-hidden">Our latest news here</p>
@@ -186,7 +186,7 @@
 			</div>
 		</section>
 
-		<section class="section main-content__section content-section content-section--colorful gallery-section">
+		<section id="projects" class="section main-content__section content-section content-section--colorful gallery-section">
 			<div class="container section__container">
 				<h2 class="heading heading-2">Gallery</h2>
 				<p class="visually-hidden">You can view the World architecture examples gallery here</p>
@@ -197,11 +197,11 @@
 			</div>
 		</section>
 
-		<section class="section main-content__section content-section contact-section">
+		<section id="contact" class="section main-content__section content-section contact-section">
 			<div class="container section__container">
 				<div class="contact-block contact-section__block">
 					<h2 class="heading heading-2">Get In Touch</h2>
-					<!-- <p class="visually-hidden">You can find our contact details below</p> -->
+					<p class="visually-hidden">You can find our contact details below</p>
 					<address class="address contact-info contact-section__col">
 						<ul class="contact-info__list">
 							<li class="contact-info__list-item"><span class="fa-solid fa-location-dot"></span>91 Nolan Extensions Suite 670</li>
@@ -210,10 +210,14 @@
 							<li class="contact-info__list-item"><span class="fa-regular fa-clock"></span>From 07:05AM to 19:30PM</li>
 						</ul>
 					</address>
-					<form action="#" id="contactForm" class="form contact-section__col">
-						<input type="text" id="userName" name="user_name" class="inpt contact-section__inpt" placeholder="Enter Your Name">
-						<input type="email" id="userEmail" name="user_email" class="inpt contact-section__inpt" placeholder="Enter Your Email">
-						<button id="contactFormSubmitBtn" type="button" class="btn">Submit</button>
+					<form action="#" id="contactForm" class="form contact-form contact-section__col">
+						<label for="userName" class="visually-hidden">Your Name</label>
+						<input type="text" id="userName" name="name" class="inpt contact-section__inpt" placeholder="Name">
+						<label for="userEmail" class="visually-hidden">Your Name</label>
+						<input type="email" id="userEmail" name="email" class="inpt contact-section__inpt" placeholder="Email">
+						<label for="UserMessage" class="visually-hidden">Your Message</label>
+						<textarea id="UserMessage"  name="message" class="textarea contact-section__inpt contact-section__textarea" placeholder="You message here.."></textarea>
+						<button id="contactFormSubmitBtn" type="button" class="btn btn--big btn--transp">Submit</button>
 					</form>
 				</div>
 
@@ -237,7 +241,7 @@
 				<li class="social-media__item"><a href="#" class="social-media__link"><span class="fa-brands fa-instagram"></span></a></li>
 			</ul>
 		</div>	
-		<div class="bottom-footer__block bottom-footer__copiright">
+		<div class="bottom-footer__block bottom-footer__copyright">
 			<p>Copyrights &copy; 2020 Monticello</p>
 		</div>	
 	</div>

@@ -76,20 +76,40 @@ function createDownArrow(parent, target) {
     } 
     else {console.log('No value set')};
   }
+
+
   const test = document.querySelector('.content-section__container .content-article');  
 //checkElem('.article');
 //checkElem(test);
 
   function listItems(el) {
   console.log(el);
-  el = checkElem(el);
-  if (!el) return console.log(`No items found for element`);
-  console.log(el);
+  let ul = checkElem(el);
+  if (!ul) return console.log(`No items found for element`);
+    ul.addEventListener('click', (e) => {
+      let li = e.target.closest('.nav-menu__item');
+      let a = e.target.closest('.nav-menu__item a');
+      let aText = a.innerText;
+      let anchor = aText.toLowerCase();
+      anchor = anchor.split(' ').join('');
+      let anchorId = `#${anchor}`;
+      if (!li || !ul.contains(li)) return;
+      console.log('clicked:', li);
+      console.log(a);
+      console.log(aText);
+      console.log(anchorId);
+      e.preventDefault();
+      let target = checkElem(anchorId);
+      if (!target) return;
+      scrollIntoView(target);
+    });
+  console.log(ul.children);
+  console.log(ul);
   }
 
 
 
-listItems('test');
+listItems('.nav-menu');
 
  //togglesAnim('.test', 'animate__fadeInLeftBig');
 

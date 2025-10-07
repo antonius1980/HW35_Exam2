@@ -18,6 +18,7 @@ $accent-color-primary: #55b7ff;
 $accent-color-secondary: #7e5aff;
 
 $light-color-primary--transparent-40: hex-to-rgb-change-alpha($light-color-primary, 40);
+$dark-color-primary--transparent-20: hex-to-rgb-change-alpha($dark-color-primary, 20);
 
 $background-color-global: $light-color-primary;
 $font-color-primary: $dark-color-primary;
@@ -27,7 +28,7 @@ $font-color-heading: $font-color-primary;
 $border-color-primary: $dark-color-primary;
 
 $buttons-color-primary: $dark-color-secondary;
-$buttons-color-secondary: $dark-color-primary;
+$buttons-color-secondary: $light-color-primary;
 
 $buttons-background-color-primary: $light-color-primary;
 $buttons-background-color-secondary: $accent-color-primary;
