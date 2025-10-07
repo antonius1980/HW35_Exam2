@@ -864,6 +864,7 @@ ol li {
   margin-bottom: 100px;
   text-align: center;
   min-height: 800px;
+  position: relative;
 }
 .main-content__section.hero-section .heading, .main-content__section.hero-section p {
   color: #fff;
@@ -873,6 +874,30 @@ ol li {
 .main-content__section.hero-section p {
   letter-spacing: 0.39em;
   line-height: 2.2rem;
+}
+.main-content__section.hero-section .down-arrow {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+}
+.main-content__section.hero-section .down-arrow:hover {
+  border-color: #fff;
+}
+.main-content__section.hero-section .down-arrow::before {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
 }
 
 .content-section {

@@ -242,6 +242,7 @@ ol {
 			@extend %gradiend-bg;
 			text-align: center;
 			min-height: 800px;
+			position: relative;
 			& .heading,
 			& p {
 				color: $light-color-primary ;
@@ -251,6 +252,26 @@ ol {
 			& p {
 				letter-spacing: 0.39em;
 				line-height: 2.2rem;
+			}
+			& .down-arrow {
+				display: block;
+				@include ah-c;
+				bottom: 50px;
+				font-size: 1.0rem;
+				border: 1px solid $light-color-primary--transparent-40;
+				color: $light-color-primary;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				z-index: 10;
+				cursor: pointer;
+				&:hover {
+					border-color: $light-color-primary;
+				}
+				&::before {
+					@include ah-c;
+					top:40%;
+				}
 			}
 		}
 	}
