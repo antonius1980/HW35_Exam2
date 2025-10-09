@@ -975,6 +975,7 @@ a:focus:not(.nav-menu__link):not(.btn) {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr;
+  margin-bottom: 60px;
 }
 @media (min-width: 900px) {
   .image-gallery {
@@ -1309,6 +1310,7 @@ a:focus:not(.nav-menu__link):not(.btn) {
 }
 .news-article__content {
   margin-bottom: 39px;
+  line-height: 2.3rem;
 }
 .article-info {
   display: flex;
@@ -1337,10 +1339,7 @@ a:focus:not(.nav-menu__link):not(.btn) {
 }
 
 .news-slider__slide {
-  margin-inline: 15px;
-}
-.news-slider__news-article {
-  margin-left: 0px;
+  padding-inline: 15px;
 }
 .hero-slider .slick-dots {
   padding-left: 0;
@@ -1351,22 +1350,24 @@ a:focus:not(.nav-menu__link):not(.btn) {
   gap: 20px;
   position: absolute;
   top: 50%;
-  right: 33px;
+  right: 53px;
   transform: translateY(-50%);
+}
+.hero-slider .slick-dots li {
+  font-size: 0;
 }
 .hero-slider .slick-dots li button {
   font-size: 0;
-  background: rgba(57, 87, 81, 0.5882352941);
-  border: 1px solid #ffddff;
+  border: 1px solid #fff;
   width: 10px;
   height: 10px;
   padding: 0;
   border-radius: 50%;
-  box-shadow: 0 0 6px 0px #4e6a6c;
+  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.431372549);
   cursor: pointer;
 }
 .hero-slider .slick-dots li.slick-active button {
-  background-color: antiquewhite;
+  background-color: #fff;
 }
 .hero-slider .slick-arrow {
   position: absolute;
@@ -1401,17 +1402,22 @@ a:focus:not(.nav-menu__link):not(.btn) {
 
 .news-slider {
   position: relative;
+  margin-bottom: 50px;
 }
+.news-slider .slick-list {
+  margin: 0 -15px; /* Adjust -10px to half of your desired gap */
+}
+.news-slider .slick-slide > article { /* Target the inner wrapper div of each slide */ }
 .news-slider .slick-dots {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   gap: 40px;
+  bottom: -55px;
   position: absolute;
-  bottom: -50px;
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
 }
 .news-slider .slick-dots li button {
   font-size: 0;
@@ -1449,7 +1455,7 @@ a:focus:not(.nav-menu__link):not(.btn) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #fff;
 }
 .news-slider .slick-arrow.slick-prev {

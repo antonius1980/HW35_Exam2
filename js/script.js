@@ -126,13 +126,13 @@ function toggleEachClass(el, ...classes) {
   Object.assign(triggerLine.style, {
     position: 'absolute',
     left: '0', top: `${fromTop}%`,
-    width: '1px', height: '50px',
+    width: '1px', height: '100px',
     pointerEvents: 'none', opacity: '0'
   });
   target.appendChild(triggerLine);
 
   const root = null;
-  const rootMargin = '-80% 0px -20% 0px';
+  const rootMargin = '-40% 0px -40% 0px';
 
   const fire = () => {
     funcs.forEach(f => { if (typeof f === 'function') f(); });
@@ -232,7 +232,7 @@ function toggleEachClass(el, ...classes) {
   const heroSection = document.querySelector('.hero-section');
   const aboutSection = document.querySelector('.about-section');
   const newsSection = document.querySelector('.news-section');
-  const gallerySection = document.querySelector('.gallery-section');
+  //const gallerySection = document.querySelector('.gallery-section');
   const contactSection = document.querySelector('.contact-section');
   createDownArrow(heroSection, aboutSection);
 
@@ -280,37 +280,25 @@ function toggleEachClass(el, ...classes) {
 
 moreBtn?.addEventListener('click', revealNextBatch);
 
-var map = L.map('map', {
-  scrollWheelZoom: false
-}).setView([50.020966, 36.31741], 15);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    
-}).addTo(map);
-
-var marker = L.marker([50.022966, 36.32741]).addTo(map);
-//var popup = L.popup();
-
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(map);
-// }
-
-// map.on('click', onMapClick);
-
-});
-
-
-//const contactFormSubmitBtn = document.getElementById('contactFormSubmitBtn');
 const contactFormSubmitBtn = checkElem('#contactFormSubmitBtn');
 const userMessage = checkElem('#userMessage');
 const showTextarea = contactFormSubmitBtn.addEventListener('click', function() {
     userMessage.classList.remove('is-invisible');
     console.log(`Clicked submit! Looks like designer forgot textfield for the user message, Ivan!`);
 },{once:true})
+
+var map = L.map('map', {
+  scrollWheelZoom: false
+}).setView([50.020966, 36.31741], 15);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+    
+}).addTo(map);
+
+var marker = L.marker([50.022966, 36.32741]).addTo(map);
+
+});
+
 
 
 
