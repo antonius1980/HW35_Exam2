@@ -2,7 +2,10 @@
 
 //Resolutions below starting from 991.99px ($lg-min)
 @media screen and (max-width: $lg-min) {
-
+	.container {
+		max-width: 90%;
+		padding-inline: 0;
+	}
 }
 
 //Resolutions from ($md) 768px to 991.99px ($lg-min)

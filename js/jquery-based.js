@@ -27,7 +27,6 @@
 				$slides.filter('[data-slick-index="'+current+'"]').find('.slide__text')
 				.removeClass(anim2 + ' is-prep is-paused');
 
-
 				$slides.filter('[data-slick-index="'+next+'"]').find('.heading')
 				.addClass(anim + ' is-prep is-paused');
 				$slides.filter('[data-slick-index="'+next+'"]').find('.slide__text')
@@ -40,8 +39,6 @@
 				$slides.filter('[data-slick-index="'+current+'"]').find('.slide__text')
 				.removeClass('is-prep is-paused');
 			});
-
-
 
           $('.hero-slider').slick({
             arrows: false,
@@ -63,7 +60,8 @@
                             slidesToShow: 1,
                         }
                     },
-                    {breakpoint: 768,
+                    {
+						breakpoint: 768,
                         settings: {
                             dots: false,
                             arrows: false,
@@ -71,11 +69,14 @@
                             speed: 800,
                         }  
                     },
+                    {
+						breakpoint: 576,
+                        settings: {
+
+                        }  
+                    }
                 ]
-
           });
-
-
 
           $('.news-slider').slick({
             arrows: true,
@@ -96,28 +97,27 @@
                         settings: {
                             dots: false,
                             arrows: true,
-                            slidesToShow: 1,
+                            slidesToShow: 2,
                         }
                     },
-                    {breakpoint: 768,
+                    {
+						breakpoint: 768,
                         settings: {
-                            dots: false,
+                            dots: true,
                             arrows: false,
                             autoplaySpeed: 3000,
                             speed: 800,
+                            slidesToShow: 1
                         }  
                     },
+                    {
+						breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1
+                        }  
+                    }
                 ]
-
           });
-
-
-
-
-
-
-
-
         });
 
 		

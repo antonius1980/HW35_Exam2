@@ -632,10 +632,9 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1270px;
+  max-width: 100%;
   margin: 0 auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0;
 }
 
 a {
@@ -1300,6 +1299,9 @@ a:focus:not(.nav-menu__link):not(.btn) {
 .news-article {
   background-color: #fff;
 }
+.news-article__image {
+  width: 100%;
+}
 .news-article__inner-container {
   padding: 30px 20px;
 }
@@ -1472,6 +1474,12 @@ a:focus:not(.nav-menu__link):not(.btn) {
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1170px;
+    padding-inline: 0;
+  }
+}
+@media screen and (max-width: 991.99px) {
+  .container {
+    max-width: 90%;
     padding-inline: 0;
   }
 }/*# sourceMappingURL=main.css.map */
