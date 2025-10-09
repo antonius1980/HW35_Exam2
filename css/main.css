@@ -602,10 +602,6 @@ template {
   display: none;
 }
 
-.main-content__section.hero-section, .bottom-footer::after {
-  background: linear-gradient(90deg, #55b7ff 0%, #7e5aff 100%);
-}
-
 body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -658,35 +654,6 @@ a:focus:not(.nav-menu__link):not(.btn) {
   border-radius: 10px;
 }
 
-p {
-  letter-spacing: normal;
-}
-
-ul li,
-ol li {
-  line-height: 1em;
-}
-
-ol {
-  list-style: decimal;
-  list-style-position: outside;
-  margin-left: 25px;
-}
-ol li {
-  padding-block: 5px;
-}
-
-.input {
-  border: 0px solid #ccc;
-  background: #fff;
-  padding: 15px 10px;
-  border-radius: 0px;
-  width: 100%;
-}
-.input:focus {
-  outline: 2px solid #aaa;
-}
-
 .btn {
   font-size: 1.4rem;
   line-height: 1.6rem;
@@ -709,8 +676,10 @@ ol li {
   display: block;
   margin: 30px auto;
 }
-.btn--big {
+.btn--bold {
   font-size: 1.8rem;
+  padding-inline: 15px;
+  min-width: 140px;
 }
 .btn--transp {
   background-color: transparent;
@@ -851,6 +820,7 @@ ol li {
 }
 .main-content__section.hero-section {
   margin-bottom: 100px;
+  background: linear-gradient(243.43deg, #7e5aff 16.9%, #55b7ff 83.27%);
   text-align: center;
   min-height: 800px;
   position: relative;
@@ -979,7 +949,7 @@ ol li {
 }
 
 .news-section {
-  background: linear-gradient(-45deg, #24CCFA 0%, #3C7FD4 100%);
+  background: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
   position: relative;
   padding: 120px 0;
 }
@@ -997,6 +967,10 @@ ol li {
   background: url(../assets/img/news-bg@1x.webp) no-repeat 100% 50%/cover;
 }
 
+.gallery-section {
+  transition: height 1s;
+}
+
 .image-gallery {
   display: grid;
   gap: 10px;
@@ -1009,7 +983,7 @@ ol li {
   }
 }
 .image-gallery__item {
-  transition: opacity 1s;
+  transition: opacity 1s, min-height 1s;
   opacity: 1;
 }
 @media (min-width: 900px) {
@@ -1025,7 +999,6 @@ ol li {
 }
 .image-gallery__link:hover {
   transform: scale(1.01);
-  border: 1px solid #2c4058;
   border-radius: 4px;
 }
 .image-gallery__link:hover img {
@@ -1057,7 +1030,7 @@ ol li {
   line-height: 2.8rem;
   font-family: "Montserrat", sans-serif;
   color: #000;
-  margin-bottom: 15px;
+  margin-bottom: 27px;
 }
 .contact-info__list-item:last-of-type {
   margin-bottom: 0;
@@ -1065,6 +1038,9 @@ ol li {
 .contact-info__list-item span {
   color: #7e5aff;
   margin-right: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  vertical-align: middle;
 }
 .contact-info__link {
   font-family: "Montserrat", sans-serif;
@@ -1126,9 +1102,13 @@ ol li {
   flex-wrap: wrap;
 }
 .contact-section__inpt {
+  font-family: "Montserrat", sans-serif;
+  border: 0px solid #ccc;
   border-bottom: 1px solid rgba(44, 64, 88, 0.2);
   color: #2c4058;
   margin-bottom: 30px;
+  width: 100%;
+  padding: 2px 0px 16px;
   width: 100%;
 }
 .contact-section__inpt::-moz-placeholder {
@@ -1142,7 +1122,11 @@ ol li {
   color: #000;
 }
 .contact-section__textarea {
-  min-height: 36px;
+  height: 41px;
+  min-height: 41px;
+  opacity: 1;
+  transition: height 1s, opacity 1s, margin-bottom 1s, min-height, 1s padding 1s;
+  overflow: hidden;
 }
 
 #map {
@@ -1175,6 +1159,7 @@ ol li {
   width: 100%;
   height: 100%;
   z-index: -2;
+  background: linear-gradient(251.06deg, #7e5aff -2.19%, #55b7ff 103.21%);
 }
 .bottom-footer__container {
   display: flex;
@@ -1183,7 +1168,8 @@ ol li {
   flex-direction: row;
   gap: 25px;
   flex-wrap: wrap;
-  padding: 200px 0 230px;
+  row-gap: 0;
+  padding: 207px 0 230px;
   width: 770px;
 }
 .bottom-footer__copyright {
@@ -1223,6 +1209,21 @@ ol li {
   opacity: 0;
 }
 
+.is-invisible {
+  opacity: 0;
+  height: 0;
+  min-height: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.is-invisible-a {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+
 .social-media {
   display: flex;
   justify-content: center;
@@ -1259,7 +1260,7 @@ ol li {
   position: relative;
 }
 .hero-slider .slider-slide::before {
-  opacity: 0.1;
+  opacity: 0.06;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1336,7 +1337,7 @@ ol li {
 }
 
 .news-slider__slide {
-  padding-inline: 15px;
+  margin-inline: 15px;
 }
 .news-slider__news-article {
   margin-left: 0px;

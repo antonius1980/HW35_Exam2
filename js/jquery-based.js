@@ -56,7 +56,7 @@
 
             responsive: [
                     {
-                        breakpoint: 998,
+                        breakpoint: 991,
                         settings: {
                             dots: false,
                             arrows: true,
@@ -92,7 +92,7 @@
 
             responsive: [
                     {
-                        breakpoint: 998,
+                        breakpoint: 991,
                         settings: {
                             dots: false,
                             arrows: true,

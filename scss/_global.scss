@@ -41,42 +41,6 @@ a {
 	}
 }
 
-p {
-	letter-spacing: normal;
-}
-
-ul li,
-ol li {
-	line-height: 1em;
-}
-
-ol {
-	list-style: decimal;
-	list-style-position: outside;
-	margin-left: 25px;
-	& li {
-		padding-block: 5px;
-	}
-}
-
-.input {
-	border: 0px solid #ccc;
-	background: #fff;
-	padding: 15px 10px;
-	border-radius: 0px;
-	width: 100%;
-	&:focus {
-		outline: 2px solid #aaa;
-	}
-}
-
-.row {
-	&__label {
-
-	}
-}
-
-
 .btn {
 	@include font-basic(1.4rem, 1.6rem, 500, $buttons-color-primary);
 	text-transform: uppercase;
@@ -95,8 +59,10 @@ ol {
 		display: block;
 		margin: 30px auto;
 	}
-	&--big {
+	&--bold {
 		font-size: 1.8rem;
+		padding-inline: 15px;
+		min-width: 140px;
 	}
 	&--transp {
 		background-color: transparent;
@@ -273,7 +239,8 @@ ol {
 	&__section {
 		&.hero-section {
 			margin-bottom: 100px;
-			@extend %gradiend-bg;
+			//@extend %gradiend-bg;
+			background: linear-gradient(243.43deg, $accent-color-secondary 16.9%, $accent-color-primary 83.27%);
 			text-align: center;
 			min-height: 800px;
 			position: relative;
@@ -411,7 +378,7 @@ ol {
 }
 
 .news-section {
-	background: linear-gradient(-45deg, #24CCFA 0%,  #3C7FD4 100%) ;	
+	background: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
 	position: relative;
 	padding: 120px 0;
 	& .heading-2 {
@@ -429,6 +396,9 @@ ol {
 	}
 }
 
+.gallery-section {
+	transition: height 1s ;
+}
 
 .image-gallery {
     display: grid;
@@ -439,7 +409,7 @@ ol {
 		grid-auto-rows: 1fr;
 	}	
     &__item {
-		transition: opacity 1s;
+		transition: opacity 1s, min-height 1s;
 		opacity: 1;
 		&:first-child {
 			@media (min-width: 900px) {
@@ -457,20 +427,15 @@ ol {
 		}
 		&:hover {
 			transform: scale(1.01);
-			border: 1px solid $dark-color-primary;
 			border-radius: 4px;
 			& img {
 				opacity: 1;
-
 			}
 			&::after {
 				content: url(../assets/img/svg/zoom-in.svg);
 				width: 70px;
 				height: 70px;
 				@include avh-c;
-			}
-			&::before {
-
 			}
 		}
     }
@@ -486,7 +451,6 @@ ol {
     }
 }
 
-
 .contact-info {
     &__list {
 		
@@ -495,13 +459,16 @@ ol {
 		line-height: 2.8rem;
 		font-family: $font-family-headings;
 		color: $dark-color-secondary;
-		margin-bottom: 15px;
+		margin-bottom: 27px;
 		&:last-of-type {
 			margin-bottom: 0;
 		}
 		& span {
 			color: $accent-color-secondary;	
 			margin-right: 10px;
+			font-size: 1.3rem;
+			font-weight: bold;
+			vertical-align: middle;
 		}
     }
     &__link {
@@ -520,12 +487,6 @@ ol {
 	min-height: 700px;
 	margin-bottom: 0;
     &__block {
-		& > .heading-2 {
-			margin-bottom: 40px;
-		}
-		& > * {
-			flex: 1 0 100%;
-		}
 		@include ah-c;
 		bottom: -150px;
 		max-width: 770px;
@@ -534,6 +495,12 @@ ol {
 		@include flex-ext(space-between, flex-start, row, 6%, wrap);
 		row-gap: 0;
 		z-index: 5;
+		& > .heading-2 {
+			margin-bottom: 40px;
+		}
+		& > * {
+			flex: 1 0 100%;
+		}
 		&::before {
 			content: "";
 			@include avh-c;
@@ -559,22 +526,31 @@ ol {
 		}
     }
     &__inpt {
+		font-family: $font-family-headings;
+		border: 0px solid #ccc;
 		border-bottom: 1px solid $dark-color-primary--transparent-20;
 		color: $dark-color-primary;
 		margin-bottom: 30px;
 		width: 100%;
-		
+		padding: 2px 0px 16px;
+		width: 100%;
 		&::placeholder{
 			color: $dark-color-primary--transparent-20;
 		}
 		&:focus {
 			border-bottom-color: $dark-color-primary;
 			color: $dark-color-secondary;
+			//outline: 1px solid #aaa;
 		}
 		
     }
 	&__textarea {
-		min-height: 36px;
+		//min-height: 36px;
+		height: 41px;
+		min-height: 41px;
+		opacity: 1;
+		transition: height 1s, opacity 1s, margin-bottom 1s, min-height, 1s padding 1s;
+		overflow: hidden;
 	}
 }
 
@@ -602,11 +578,13 @@ ol {
 		width:100%;
 		height: 100%;
 		z-index: -2;
-		@extend %gradiend-bg;
+		//@extend %gradiend-bg;
+		background: linear-gradient(251.06deg, $accent-color-secondary -2.19%, $accent-color-primary 103.21%);
 	}
     &__container {
 		@include flex-ext(space-between, center, row, 25px, wrap);
-		padding: 200px 0 230px;
+		row-gap: 0;
+		padding: 207px 0 230px;
 		width: 770px;
     }
     &__block {
@@ -643,6 +621,20 @@ ol {
 	opacity:0;
 }
 
+.is-invisible {
+	opacity:0;
+	height:0;
+	min-height: 0;
+	margin-bottom:0;
+	padding: 0;
+}
+.is-invisible-a {
+	opacity:0;
+	height:0;
+	width:0;
+	position: absolute;
+}
+
 .social-media {
 	@include flex-ext(center, center, row, 20px, nowrap);
     &__item {
@@ -675,7 +667,7 @@ ol {
 		height: 800px;
 		position: relative;
 			&::before {
-				opacity: 0.1;
+				opacity: 0.06;
 				@include avh-c;
 				content: "";
 				position: absolute;
@@ -771,7 +763,7 @@ ol {
 
 .news-slider {
 	&__slide {
-		padding-inline: 15px;
+		margin-inline: 15px;
 
 		& .news-article {
 			

@@ -199,7 +199,7 @@
 			</div>
 		</section>
 
-		<section id="projects" class="section main-content__section content-section content-section--colorful gallery-section">
+		<section id="projects" class="section main-content__section content-section gallery-section">
 			<div class="container section__container">
 				<h2 class="heading heading-2">Gallery</h2>
 				<p class="visually-hidden">You can view the World architecture examples gallery here</p>
@@ -211,7 +211,7 @@
 					</li>
 					<li class="image-gallery__item">
 						<a class="image-gallery__link" href="./assets/img/gallery/gallery-picture2@2x.webp" data-lg-size="1278-1280">
-							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture2@2x.webp">
+							<img class="image-gallery__img" alt=".." src="./assets/img/gallery/gallery-picture2@0.5x.webp">
 						</a>
 					</li>
 					<li class="image-gallery__item">
@@ -270,12 +270,12 @@
 					</address>
 					<form action="#" id="contactForm" class="form contact-form contact-section__col">
 						<label for="userName" class="visually-hidden">Your Name</label>
-						<input type="text" id="userName" name="name" class="inpt contact-section__inpt" placeholder="Name" required>
-						<label for="userEmail" class="visually-hidden">Your Name</label>
-						<input type="email" id="userEmail" name="email" class="inpt contact-section__inpt" placeholder="Email" required>
-						<label for="UserMessage" class="visually-hidden">Your Message</label>
-						<textarea id="UserMessage"  name="message" class="textarea contact-section__inpt contact-section__textarea" placeholder="You message here.." required></textarea>
-						<button id="contactFormSubmitBtn" type="submit" class="btn btn--big btn--transp">Submit</button>
+						<input type="text" id="userName" name="name" class="inpt contact-section__inpt" placeholder="Name" autocomplete="off" required>
+						<label for="userEmail" class="visually-hidden" >Your Name</label>
+						<input type="email" id="userEmail" name="email" class="inpt contact-section__inpt" placeholder="Email" autocomplete="off" required>
+						<label for="userMessage" class="visually-hidden">Your Message</label>
+						<textarea id="userMessage"  name="message" class="textarea contact-section__inpt contact-section__textarea is-invisible" placeholder="You message here.." required></textarea>
+						<button id="contactFormSubmitBtn" type="submit" class="btn btn--bold btn--transp">Submit</button>
 					</form>
 				</div>
 

@@ -83,7 +83,6 @@ function createDownArrow(parent, target) {
 //checkElem(test);
 
   function listItems(el) {
-  console.log(el);
   let ul = checkElem(el);
   if (!ul) return console.log(`No items found for element`);
     ul.addEventListener('click', (e) => {
@@ -94,17 +93,12 @@ function createDownArrow(parent, target) {
       anchor = anchor.split(' ').join('');
       let anchorId = `#${anchor}`;
       if (!li || !ul.contains(li)) return;
-      console.log('clicked:', li);
-      console.log(a);
-      console.log(aText);
-      console.log(anchorId);
       e.preventDefault();
       let target = checkElem(anchorId);
       if (!target) return;
       scrollIntoView(target);
     });
-  console.log(ul.children);
-  console.log(ul);
+  //console.log(ul.children);
   }
 
 
@@ -192,17 +186,26 @@ function toggleEachClass(el, ...classes) {
   const galleryEl = document.getElementById('gallery');
   const moreBtn = document.getElementById('galleryLoadMoreBtn');
   const batch = 4;
+
+  const gallerySection = galleryEl.closest('.gallery-section');
+  let gallerySectionHeight = gallerySection.offsetHeight;
+  gallerySection.style.height = gallerySectionHeight+'px';
   
   function revealNextBatch() {
   const hiddenItems = galleryEl.querySelectorAll('.image-gallery__item.is-hidden');
   hiddenItems.forEach((li, i) => {
-    if (i < batch) {
-		li.classList.remove('is-hidden');
-	}
+      if (i < batch) {
+      li.classList.add('is-invisible-a');
+      li.classList.remove('is-hidden');
+      setTimeout(()=> {
+        li.classList.remove('is-invisible-a');
+        gallerySection.style.height = gallerySectionHeight + 100 + 'px';
+      }, 500);
+    }
   });
 
   if (!galleryEl.querySelector('.image-gallery__item.is-hidden')) {
-    moreBtn.remove();
+    setTimeout(()=> {moreBtn.remove();}, 600);
   }
 }
 
@@ -218,13 +221,10 @@ function toggleEachClass(el, ...classes) {
     { heading: 'Visionary & Bold', text: 'Turning ambitious ideas into living landmarks' }
   ]);
 
-
-
-  
   const topMenu = document.querySelector(".nav-menu");
   const targetsList =[];
   function addClickTargets(parent) {
-  targetsList.push();
+    targetsList.push();
   }
 
   addClickTargets(topMenu);
@@ -302,6 +302,16 @@ var marker = L.marker([50.022966, 36.32741]).addTo(map);
 // map.on('click', onMapClick);
 
 });
+
+
+//const contactFormSubmitBtn = document.getElementById('contactFormSubmitBtn');
+const contactFormSubmitBtn = checkElem('#contactFormSubmitBtn');
+const userMessage = checkElem('#userMessage');
+const showTextarea = contactFormSubmitBtn.addEventListener('click', function() {
+    userMessage.classList.remove('is-invisible');
+    console.log(`Clicked submit! Looks like designer forgot textfield for the user message, Ivan!`);
+},{once:true})
+
 
 
 
