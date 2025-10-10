@@ -18,10 +18,11 @@ body {
 }
 
 .container {
-	width: 100%;
-	max-width: $container-width;;
+	//width: $container-width-max;
+	width: calc($container-width-max + $container-padding * 2);
+	max-width: 100%;
 	margin: 0 auto;
-	padding: 0;
+	padding: 0 $container-padding;
 }
 
 a {
@@ -80,24 +81,75 @@ a {
 		box-shadow: 0px 1px 1px 0px $accent-color-secondary;
 		border-radius: 4px;
 		text-shadow: 2px 0 3px rgba(0, 0, 0, 0.3);
-		font-size: 110%;
-		// &::before,
-		// &::after {
-		// 	font-family: "Font Awesome 6 Free";
-		// 	height: 1em;
-		// 	width: 1em;
-		// 	content: ">>>";
-		// 	@include av-c;
-		// 	left: 10px;
-
-		// }
-		// &::after {
-		// 	content: "<<<";
-		// 	right: 10px;
-		// 	left:auto;
-		// }
+		font-size: 105%;
+		&::before,
+		&::after {
+			font-family: "Font Awesome 6 Free";
+			height: inherit;
+			width: 1em;
+			content: ">>>";
+			position: absolute;
+			top: 50%;
+			left: 5px;
+			transform: translateY(-50%) scaleX(0.3);
+			animation: animateButtonArrowLeft 0.5s ease-in-out 0.1s 2;
+		}
+		&::after {
+			content: "<<<";
+			right: 10px;
+			left:auto;
+			animation: animateButtonArrowRight 0.5s ease-in-out 0.1s 2;
+		}
 
 	}
+
+@keyframes animateButtonArrowLeft {
+    0% {
+        transform: translateY(-50%) scaleX(0.3);
+    }
+    50% {
+        transform: translateY(-50%) scaleX(0.4) translateX(5px) scaleY(0.8);
+    }
+    100% {
+        transform: translateY(-50%) scaleX(0.3);
+    }
+}
+
+@keyframes animateButtonArrowRight {
+    0% {
+        transform: translateY(-50%) scaleX(0.3);
+    }
+    50% {
+        transform: translateY(-50%) scaleX(0.4) translateX(-15px) scaleY(0.8);
+    }
+    100% {
+        transform: translateY(-50%) scaleX(0.3);
+    }
+}
+
+@keyframes animateNavCircle {
+    0% {
+        transform: translate(0%, -50%) scale(1);
+    }
+    15% {
+        transform: translate(-10%, -50%) scale(0.8);
+    }
+    30% {
+        transform: translate(0%, -50%) scale(1.3);
+    }
+    45% {
+        transform: translate(-10%, -50%) scale(0.8);
+    }
+    65% {
+        transform: translate(0%, -50%) scale(1.3);
+    }
+    80% {
+        transform: translate(-10%, -50%) scale(0.8);
+    }
+    100% {
+        transform: translate(0%, -50%) scale(1);
+    }
+}
 
 	&:focus {
 		//color: #4f0d04;
@@ -172,7 +224,8 @@ a {
 
 .nav-menu {
 	@include flex-ext(flex-end, center, row, 70px, null);
-	margin-right: 85px;
+	margin-right: 75px;
+	margin-left: 20px;
     &__item {
     }
     &__link {
@@ -180,6 +233,7 @@ a {
 		font-optical-sizing: auto;
 		font-weight: 400;
 		font-size: 1.4rem;
+		line-height: 1em;
 		color: $light-color-primary;
 		text-decoration: none;
 		padding-left: 23px;
@@ -194,7 +248,6 @@ a {
 			border: 1px solid $light-color-primary;
 			left:0;
 			@include av-c;
-    		transform: translateY(-50%);
 			width: 9px;
 			height: 9px;
 			border-radius: 50%;
@@ -202,11 +255,10 @@ a {
 		}
 		&:hover {
 			text-decoration: none;
-			transform: scale(1.5) translateY(-5px);// rotateZ(360deg);
+			transform: scale(1.5) translateY(-5px);
 			&::before {
 				background-color: $light-color-primary;
-				//transform: translateX(50px) scale(10);
-				//opacity: 0.1;
+				animation: animateNavCircle 1.8s ease-in-out 0.0s infinite;
 			}
 		}
     }
@@ -220,14 +272,12 @@ a {
 	z-index: 1;
 	&__container {
 	@include flex-ext(space-between, center, row, 25px);
-	padding: 0px 0;
 	}
     &__block {
 
     }
     &__nav {
 		margin-left: auto;
-
     }
     &__socials {
 
@@ -241,7 +291,8 @@ a {
 			//@extend %gradiend-bg;
 			background: linear-gradient(243.43deg, $accent-color-secondary 16.9%, $accent-color-primary 83.27%);
 			text-align: center;
-			min-height: 800px;
+			//min-height: 800px;
+			min-height: 100vh;
 			position: relative;
 			& .heading,
 			& p {
@@ -287,7 +338,6 @@ a {
 			margin-bottom: 150px;
 		}
 	}
-
 }
 
 .content-article {
@@ -474,15 +524,12 @@ a {
     &__link {
 		font-family: $font-family-headings;
 		color: $dark-color-secondary;
-
 		&:hover {
 			text-decoration: none;
 		}
-
     }
 }
 .contact-section {
-	background-color: #efefef;
 	position: relative;
 	min-height: 700px;
 	margin-bottom: 0;
@@ -490,6 +537,7 @@ a {
 		@include ah-c;
 		bottom: -150px;
 		max-width: 770px;
+		width: 100%;
 		min-height: 450px;
 		padding: 60px;
 		@include flex-ext(space-between, flex-start, row, 6%, wrap);
@@ -542,10 +590,8 @@ a {
 			color: $dark-color-secondary;
 			//outline: 1px solid #aaa;
 		}
-		
     }
 	&__textarea {
-		//min-height: 36px;
 		height: 41px;
 		min-height: 41px;
 		opacity: 1;
@@ -554,13 +600,12 @@ a {
 	}
 }
 
-	#map {
-		height: 700px;
-		z-index: 1;
-	}
+#map {
+	height: 700px;
+	z-index: 1;
+}
 
 .bottom-footer {
-	
 	min-height: 550px;
 	position: relative;
 	color: $light-color-primary;
@@ -601,40 +646,6 @@ a {
     }
 }
 
-.visually-hidden {
-	@include v-hid;
-}
-.transparent {
-	opacity: 0;
-}
-
-.is-prep {
-	opacity:0;
-}
-
-.is-paused {
-	animation-play-state: paused;
-}
-
-.is-hidden {
-	display:none;
-	opacity:0;
-}
-
-.is-invisible {
-	opacity:0;
-	height:0;
-	min-height: 0;
-	margin-bottom:0;
-	padding: 0;
-}
-.is-invisible-a {
-	opacity:0;
-	height:0;
-	width:0;
-	position: absolute;
-}
-
 .social-media {
 	@include flex-ext(center, center, row, 20px, nowrap);
     &__item {
@@ -647,7 +658,7 @@ a {
 		border: 1px solid $light-color-primary--transparent-40;
 		border-radius: 50%;
 		position: relative;
-		transition: transform 0.5s, opacity 0.5s;
+		transition: transform 0.5s, opacity 0.5s, color 1s, background-color 1s;
 		& span {
 			@include avh-c;
 			font-size: 16px;
@@ -655,16 +666,20 @@ a {
 		&:hover {
 			border-color: $light-color-primary; 
 			transform: scale(1.5) rotateZ(360deg);
+			background-color: $light-color-primary;
+			color:  $accent-color-secondary;
 		}
     }
 }
 
-// ----------------Hero Slider--------------
+// --- Hero Slider Custom classes ---
+
 .hero-slider {
 	& .slider-slide {
-		//padding: 330px 0 329px;
+		@include flex-center();
 		padding: 150px 0 150px;
-		height: 800px;
+		//height: 800px;
+		min-height: 100vh;
 		position: relative;
 			&::before {
 				opacity: 0.06;
@@ -707,14 +722,20 @@ a {
 					background-image: url(../assets/img/slider/slider5@1x.webp);
 				}
 			}
-
 		}
 	}
 }
 
+// --- News Slider Custom classes ---
 
-
-// ----------------News Slider--------------
+.news-slider {
+	&__slide {
+		padding-inline: 15px;
+	}
+	&__news-article {
+	
+	}
+}
 
 .news-article {
 	background-color: $light-color-primary;
@@ -744,13 +765,16 @@ a {
 	@include flex-ext(flex-start, center, row, 20px, null);
 	&__img {
 		width: 60px;
-		height: 60px;
+		height: auto;
+		max-width: 30%;
+		aspect-ratio: 1/1;
 		border-radius: 50%;
 	}
 	&__author {
 		font-family: $font-family-headings;
 	}
 	&__name {
+		line-height: 1.1em;
 		display: block;
 		text-transform: uppercase;
 	}
@@ -762,43 +786,13 @@ a {
 	}
 }
 
-.news-slider {
-	&__slide {
-		padding-inline: 15px;
-
-		& .news-article {
-			//margin-left: 0px;
-		}
-		& + .news-slider__slide .news-article {
-			//margin-left: 30px;
-		}
-	}
-	&__news-article {
-		
-
-	}
-
-}
-
-// ------------------------- Slick Slider Default Classes ---------------------
-.hero-slider {
+// --- Common Slick Slider Default Classes ---
+.slick-slider {
 	& .slick-dots {
-		padding-left: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 20px;
-		position: absolute;
-		top: 50%;
-		right: 53px;
-		transform: translateY(-50%);
-
 		& li {
 			font-size: 0;
 			& button {
 				font-size: 0;
-
 				border: 1px solid $light-color-primary;
 				width: 10px;
 				height: 10px;
@@ -813,81 +807,11 @@ a {
 				}
 			}
 		}
-
 	}
 	& .slick-arrow {
 		@include av-c;
 		z-index: 3;
 		font-size: 0;
-		border: 1px solid $light-color-primary--transparent-40;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-
-		&::before {
-			content: "<";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 30px;
-			color: #fff;
-		}
-	}
-
-	& .slick-prev {
-		left: 30px;
-	}
-
-	& .slick-next {
-		left: none;
-		right: 30px;
-		&::before {
-			content: ">";
-		}
-	}
-}
-
-// ------------------------- News Slick Slider Default Classes ---------------------
-.news-slider {
-	position: relative;
-	margin-bottom: 50px;
-    & .slick-list {
-        margin: 0 -15px; /* Adjust -10px to half of your desired gap */
-    }
-
-    & .slick-slide > article { /* Target the inner wrapper div of each slide */
-        //padding: 0 10px; /* Adjust 10px to half of your desired gap */
-    }
-
-	& .slick-dots {
-		@include flex-ext(center, center, row, 40px, null);
-		bottom: -55px;
-		@include ah-c;
-
-		& li {
-			& button {
-				font-size: 0;
-				border: 1px solid #fff;
-				width: 10px;
-				height: 10px;
-				padding: 0;
-				border-radius: 50%;
-				cursor: pointer;
-			}
-			&.slick-active {
-				button {
-					background-color: $light-color-primary;
-				}
-			}
-		}
-
-	}
-	& .slick-arrow {
-		@include av-c;
-		z-index: 3;
-		font-size: 0;
-		border: none;
 		background: transparent;
 		width: 40px;
 		height: 40px;
@@ -896,25 +820,89 @@ a {
 		&:hover {
 			border-color: $light-color-primary;
 		}
-
 		&::before {
-			font-family: "Font Awesome 6 Free"; 
-			content: "\f104";
-			font-weight: 900;
 			@include avh-c;
-			font-size: 1.0rem;
-			color: #fff;
+			@extend %arrows-before;
 		}
+		&.slick-next {
+			left: none;
+			&::before {
+				@extend %next-arrow-before;
+			}
+		}
+	}
+}
+
+// --- Hero Slick Slider Default Classes ---
+.hero-slider {
+	& .slick-dots {
+@include flex-ext(center, center, column, 20px, null);		
+		@include av-c;
+		right: 53px;
+	}
+	& .slick-arrow {
+		&.slick-prev {
+			left: 30px;
+		}
+		&.slick-next {
+			right: 30px;
+		}
+	}
+}
+
+// --- News Slick Slider Default Classes ---
+.news-slider {
+	position: relative;
+	margin-bottom: 50px;
+    & .slick-list {
+        margin: 0 -15px;
+    }
+	& .slick-dots {
+		@include flex-ext(center, center, row, 40px, null);
+		@include ah-c;
+		bottom: -55px;
+	}
+	& .slick-arrow {
 		&.slick-prev {
 			left: -100px;
 		}
 		&.slick-next {
-			left: none;
 			right: -100px;
-			&::before {
-				content: "\f105";
-			}
 		}
 	}
+}
 
+// --- Utility classes ---
+.visually-hidden {
+	@include v-hid;
+}
+.transparent {
+	opacity: 0;
+}
+
+.is-prep {
+	opacity:0;
+}
+
+.is-paused {
+	animation-play-state: paused;
+}
+
+.is-hidden {
+	display:none;
+	opacity:0;
+}
+
+.is-invisible {
+	opacity:0;
+	height:0;
+	min-height: 0;
+	margin-bottom:0;
+	padding: 0;
+}
+.is-invisible-a {
+	opacity:0;
+	height:0;
+	width:0;
+	position: absolute;
 }

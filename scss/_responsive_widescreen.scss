@@ -5,6 +5,7 @@
 //Resolutions up from 1400px ($xxl)
 @media screen and (min-width: $xxl) {
 	.container {
+		width:100%;
 		max-width: $container-width-max;
 		padding-inline: 0;
 	}
@@ -17,5 +18,78 @@
 
 //Resolutions below starting from 1199.99px ($xl-min)
 @media screen and (max-width: $xl-min) {
+.nav-menu {
+	@include flex-ext(flex-end, center, row, 70px, null);
+	margin-right: 20px;
+	column-gap: 30px;
+    &__link {
+		padding-left: 15px;
+    }
+}
+
+.heading {
+	&-1 {
+		font-size: 6.0rem;
+		line-height: 1.2em;
+		margin-bottom: 20px;
+	}
+}
+
+.content-section {
+	margin-bottom: 90px;
+    &__container {
+    }
+	&__article {
+		margin-bottom: 120px;
+		&:last-of-type {
+			margin-bottom: 120px;
+		}
+	}
+}
+
+.news-section {
+	padding-block: 90px;
+	& .heading-2 {
+
+	}
+}
+
+.news-article {
+	&__title {
+		font-size: 2.0rem;
+		line-height: 2.4rem;
+		margin-bottom: 10px;
+	}
+	&__content {
+		margin-bottom: 30px;
+	}
+}
+
+.article-info {
+	&__img {
+
+	}
+	&__author {
+
+	}
+	&__name {
+		font-size: 1.5rem;
+		margin-bottom: 3px;
+	}
+	&__date {
+
+	}
+}
+
+.contact-section {
+	margin-bottom: 0;
+}
+
+.bottom-footer {
+	min-height: auto;
+    &__container {
+		padding: 207px 0 180px;
+    }
+}
 
 }

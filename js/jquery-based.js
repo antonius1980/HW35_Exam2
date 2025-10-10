@@ -43,14 +43,12 @@
           $('.hero-slider').slick({
             arrows: false,
             dots: true,
-
             autoplay: true,
             autoplaySpeed: 4000,
             speed: 1500,
             infinite: true,
             fade: true,
 			slidesPerRow: 3,
-
             responsive: [
                     {
                         breakpoint: 991,
@@ -65,8 +63,6 @@
                         settings: {
                             dots: false,
                             arrows: false,
-                            autoplaySpeed: 3000,
-                            speed: 800,
                         }  
                     },
                     {
@@ -93,20 +89,30 @@
 
             responsive: [
                     {
+                        breakpoint: 1400,
+                        settings: {
+                            dots: true,
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            dots: true,
+                            arrows: true,
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
                         breakpoint: 991,
                         settings: {
-                            dots: false,
-                            arrows: true,
-                            slidesToShow: 2,
+                            slidesToShow: 2
                         }
                     },
                     {
 						breakpoint: 768,
                         settings: {
                             dots: true,
-                            arrows: false,
-                            autoplaySpeed: 3000,
-                            speed: 800,
                             slidesToShow: 1
                         }  
                     },

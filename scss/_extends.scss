@@ -7,6 +7,21 @@
 %gradiend-bg {
 	background: linear-gradient(218deg, $accent-color-secondary 0%,  $accent-color-primary 100%) ;	
 }
+
+// @extend %arrows-before;
+%arrows-before {
+	content: "\f104";
+	font-family: "Font Awesome 6 Free"; 
+	font-weight: 900;
+	font-size: 1.0rem;
+	color: $light-color-primary;
+}
+
+// @extend %next-arrow-before;
+%next-arrow-before {
+	content: "\f105";
+}
+
 %screen-width-max {
     max-width: 100vw;
     overflow-x: hidden;
