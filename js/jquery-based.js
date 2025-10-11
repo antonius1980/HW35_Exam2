@@ -68,7 +68,8 @@
                     {
 						breakpoint: 576,
                         settings: {
-
+                            dots: false,
+                            arrows: false,
                         }  
                     }
                 ]

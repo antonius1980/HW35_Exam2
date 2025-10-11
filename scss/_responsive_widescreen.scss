@@ -19,7 +19,6 @@
 //Resolutions below starting from 1199.99px ($xl-min)
 @media screen and (max-width: $xl-min) {
 .nav-menu {
-	@include flex-ext(flex-end, center, row, 70px, null);
 	margin-right: 20px;
 	column-gap: 30px;
     &__link {
@@ -88,7 +87,7 @@
 .bottom-footer {
 	min-height: auto;
     &__container {
-		padding: 207px 0 180px;
+		padding-block: 207px 180px;
     }
 }
 

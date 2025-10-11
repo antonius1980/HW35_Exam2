@@ -98,3 +98,12 @@ if (getComputedStyle(host).position === 'static') host.style.position = 'relativ
 
     observer.observe(triggerLine);
   }
+
+    function targetFireFuncs(el, ...funcs) {
+    el = checkElem(el);
+    if (!el) return;
+    const fire = () => {
+      funcs.forEach(f => { if (typeof f === 'function') f(); });
+    };
+    fire(el);
+  };

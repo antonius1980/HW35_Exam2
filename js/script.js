@@ -77,11 +77,6 @@ function createDownArrow(parent, target) {
     else {console.log('No value set')};
   }
 
-
-  const test = document.querySelector('.content-section__container .content-article');  
-//checkElem('.article');
-//checkElem(test);
-
   function listItems(el) {
   let ul = checkElem(el);
   if (!ul) return console.log(`No items found for element`);
@@ -101,13 +96,7 @@ function createDownArrow(parent, target) {
   //console.log(ul.children);
   }
 
-
-
 listItems('.nav-menu');
-
- //togglesAnim('.test', 'animate__fadeInLeftBig');
-
-
 
 function toggleEachClass(el, ...classes) {
   const node = (typeof el === 'string') ? document.querySelector(el) : el;
@@ -188,30 +177,43 @@ function toggleEachClass(el, ...classes) {
   const batch = 4;
 
   const gallerySection = galleryEl.closest('.gallery-section');
-  let gallerySectionHeight = gallerySection.offsetHeight;
-  gallerySection.style.height = gallerySectionHeight+'px';
   
   function revealNextBatch() {
   const hiddenItems = galleryEl.querySelectorAll('.image-gallery__item.is-hidden');
+
+  const gallerySectionHeight = gallerySection.offsetHeight;
+  gallerySection.style.height = gallerySectionHeight+'px';
+
+  const initialGalHeight = galleryEl.offsetHeight;
+  let gallerySectionHeightNew;
+  //console.log(`initialGalHeight:${initialGalHeight}`);
+
   hiddenItems.forEach((li, i) => {
       if (i < batch) {
       li.classList.add('is-invisible-a');
       li.classList.remove('is-hidden');
       setTimeout(()=> {
         li.classList.remove('is-invisible-a');
-        gallerySection.style.height = gallerySectionHeight + 100 + 'px';
+        let updatedGalHeight = galleryEl.offsetHeight;
+        let galHeightDiff = updatedGalHeight - initialGalHeight;
+        gallerySectionHeightNew = gallerySectionHeight + galHeightDiff;
+        //console.log(`updatedGalHeight in func 1:${updatedGalHeight}`);
+        gallerySection.style.height = gallerySectionHeightNew + 'px';
       }, 500);
     }
   });
 
   if (!galleryEl.querySelector('.image-gallery__item.is-hidden')) {
-    setTimeout(()=> {moreBtn.remove();}, 600);
-  }
+    setTimeout(()=> {moreBtn.remove(); gallerySection.style.height = gallerySectionHeightNew - 110 + 'px';}, 600);
+    setTimeout(()=> {gallerySection.style.height = 'auto';}, 1600);   
+  } else {
+    setTimeout(()=> {gallerySection.style.height = gallerySectionHeightNew + 'px';}, 600);
+    setTimeout(()=> {gallerySection.style.height = 'auto';}, 1600);
+  };
 }
 
   //----------------After DOM Loaded-----------------
   document.addEventListener('DOMContentLoaded', () => { 
-
     //-------Создаю слайдер с текстами---------
   const heroSlider = createSlider('topSlider', [
     { heading: 'Simple & Modern', text: 'We make the world beautiful everyday' },
@@ -228,6 +230,12 @@ function toggleEachClass(el, ...classes) {
   }
 
   addClickTargets(topMenu);
+
+  const toggleNavBtn = checkElem('.hamburger-toggle');
+  const toggleNav = toggleNavBtn?.addEventListener('click', function() {
+    toggleClass(toggleNavBtn, 'is-clicked');
+    toggleClass(topMenu, 'nav-menu--mob-visible');
+  })
 
   const heroSection = document.querySelector('.hero-section');
   const aboutSection = document.querySelector('.about-section');
@@ -298,11 +306,3 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var marker = L.marker([50.022966, 36.32741]).addTo(map);
 
 });
-
-
-
-
-
-
-
-

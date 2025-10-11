@@ -3,6 +3,49 @@
 //Resolutions below starting from 575.99px ($sm-min)
 @media screen and (max-width: $sm-min) {
 
+	.hamburger-toggle {
+		position: absolute;
+		top: 15px;
+		right: 20px;
+}
+
+.nav-menu {
+
+    &__item {
+    }
+    &__link {
+		padding: 25px 3vw;
+		&::before {
+			left:10vw;
+		}
+    }
+	&--mob-visible {
+		width: 100vw;
+		max-width: 100%;
+		right: 0px;
+	}
+}
+
+
+
+	.top-header {
+		&__container {
+		flex-wrap: wrap;
+		}
+		&__block {
+			&.logo-block {
+				width: 100%;
+			}
+
+		}
+		&__nav {
+			margin-left: 0;
+		}
+		&__socials {
+
+		}
+	}
+
 }
 
 //Resolutions below starting from 359.99px ($xs-min)
